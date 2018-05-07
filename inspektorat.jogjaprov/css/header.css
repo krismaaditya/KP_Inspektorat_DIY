@@ -1,0 +1,52 @@
+body{
+  /*font-family: Tahoma, Geneva, sans-serif;*/
+  font-family: Arial, Helvetica, sans-serif;
+  /*font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;*/
+  /*font-family: "Trebuchet MS", Helvetica, sans-serif;*/
+  /*font-family: Verdana, Geneva, sans-serif;*/
+  margin: 0 auto;
+  width: 90%;
+}
+
+/*--- Header ---*/
+header{
+  height: auto;
+}
+
+.logo_div{
+  width: auto;
+  height: auto;
+  float: left;
+  margin: 20px 0px 0px 104.5px;
+}
+
+.logo_provinsi{
+  width: 50px;
+  height: auto;
+}
+
+.instansi_div{
+  float: left;
+  margin: 8px 0px 41px 20px;
+}
+
+.nama_instansi a{
+  text-decoration: none;
+  color: #007a26;
+  font-weight: 80;
+  font-size: 1em;
+}
+.sub_div{
+  clear: both;
+  position: absolute;
+  margin: 58px 0px 31px 175px;
+}
+
+.sub_nama{
+  font-weight: lighter;
+  color: #666666;
+}
+#foto_inspektorat{
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,306 @@
+body{
+	font-family: "Open Sans", sans-serif;
+	margin: 0 auto;
+	width: 90%;
+}
+
+#pndJudul{
+	margin-left: 10px;
+}
+
+input
+{
+	padding: 2px;
+	width: 95%;
+	height: 30px;
+	font-family: Tahoma;
+	margin: 5px 0px 10px 0px;
+}
+
+.submit-pengaduan-button
+{
+	background-color: #252525;
+	width: 50%;
+	height: 50px;
+	cursor: pointer;
+	color: white;
+	border: none;
+	font-size: 1em;
+}
+
+.submit-pengaduan-button:hover
+{
+	/*border-bottom: 3px solid #007a26;*/
+	background-color: #007a26;
+}
+
+/*konten modal box*/
+.tulispengaduan {
+	/*border: 2px solid blue;*/
+	box-shadow: 1px 1px 5px 2px grey;
+	padding: 10px;
+	width: 60%;
+	float: left;
+	clear: both;
+}
+
+.informasipengadu{
+	float: right;
+	margin-right: 5%;
+}
+
+#infoprof{
+	margin-top: 27px;
+}
+
+/*Style untuk List Pengaduan*/
+.listpengaduan-samping
+{
+  margin: 30px 0px;
+	margin-top: 40px;
+	margin-left: 10px;
+	box-shadow: 1px 1px 5px 2px grey;
+	width: 55%;
+	height: 0%;
+}
+
+.taPengaduan{
+	margin-top: 10px;
+	width: 95%;
+	height: 265px;
+	font-size: 1.3em;
+}
+
+.wrapper{
+	width: 91%;
+}
+
+.wrapper a{
+  text-decoration: none;
+}
+
+.content-title{
+  color : black;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 20px;
+	word-wrap: break-word;
+}
+
+.content-body{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	/*word-wrap: break-word;
+	word-break: break-all;
+	text-align: justify;*/
+	text-align: justify;
+	overflow: hidden;
+	display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.baca_Lengkap:hover{
+	text-decoration: underline;
+	font-style: italic;
+}
+
+#list-ul li{
+  list-style: none;
+}
+
+/*Style Form Pengaduan*/
+.pndmodal-header{
+  padding: 2px 16px;
+  background-color: #252525;
+  color: white;
+  border-radius: 5px 5px 0 0;
+}
+
+.pndmodal-body{
+  padding: 12px 12px;
+	height: 520px;
+}
+
+/* The Modal (background) */
+.pndmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    padding-top: 10px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.pndmodal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.pndclose {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.pndclose:hover,
+.pndclose:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*Style Untuk Tombol Pengaduan*/
+#alertpengaduan{
+	/*border: none;
+  background-color: #007a26;
+  color: white;
+  width: 150px;
+  height: 50px;*/
+  cursor: pointer;
+  border-radius: 3px;
+  border: 2px solid black;
+	float: right;
+	clear: both;
+	margin-top: 18px;
+	margin-right: 3%;
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: bold;
+	width: 400px;
+}
+
+#pndBtn {
+  border: none;
+  background-color: #007a26;
+  color: white;
+  width: 180px;
+  height: 75px;
+  cursor: pointer;
+  border-radius: 5px;
+	float: right;
+	clear: both;
+	padding: 5px;
+	margin-top: 18px;
+	margin-right: 13%;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#pndBtn:hover {
+  border-bottom: 5px solid #252525;
+}
+
+#hre{
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.tkmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.tkmodal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 33%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.tkclose {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.tkclose:hover,
+.tkclose:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tkmodal-header {
+    padding: 2px 16px;
+    background-color: #252525;
+    color: white;
+}
+
+.tkmodal-body {
+	padding: 2px 16px;
+}
+
+#tkBtn{
+	margin-left: 5%;
+}
+
+.submit-tambahjnspengaduan-button{
+	margin: 10px 25%;
+	width: 50%;
+}
+
+.tambah-jnspengaduan{
+	padding: 0px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	width: 100%;
+}

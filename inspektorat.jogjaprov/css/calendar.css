@@ -1,0 +1,48 @@
+table
+{
+  /*border: 2px solid #252525;*/
+  /*border-radius: 5px;*/
+  border-collapse:collapse;
+  background-color: #252525;
+  color: white;
+}
+
+td
+{
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  /*border: 1px solid #007a26;*/
+  font-size: 1em;
+  /*font-weight: bold;*/
+}
+
+th
+{
+  height: 30px;
+  padding-bottom: 8px;
+  background:#007a26;
+  font-size: 20px;
+  color: white;
+}
+
+.prev_sign a, .next_sign a{
+color:white;
+text-decoration: none;
+}
+
+tr.week_name{
+  font-size: 16px;
+  font-weight:400;
+  color: white;
+  width: 10px;
+  background-color: #007a26;
+}
+
+.highlight{
+background-color:#252525;
+color:white;
+height: 27px;
+padding-top: 13px;
+padding-bottom: 7px;
+}

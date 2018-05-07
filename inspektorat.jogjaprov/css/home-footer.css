@@ -1,0 +1,77 @@
+/*--- Footer ---*/
+footer {
+  /*background-color: #007a26;*/
+  height: auto;
+  /*border-top: 3px solid #007a26;*/
+  /*text-align: center;*/
+  clear: both;
+  color: white;
+  background: url('../assets/images/jogja-istimewa-pattern-purewhite.png');
+  background-repeat: repeat-x;
+  background-position: 50% 65%;
+  background-color: #007a26;
+}
+
+.footer-left{
+  float: left;
+  width: auto;
+  font-size: 15px;
+  /*border: 1px solid blue;*/
+  padding: 10px 50px;
+}
+
+.icon-footer-left{
+  float: left;
+  width: 24px;
+  height: 24px;
+}
+
+.p-left
+{
+  margin-left: 10%;
+}
+
+.footer-right{
+  font-size: 15px;
+  padding: 10px 50px;
+  float: left;
+  width: auto;
+  /*margin-right: 5%;*/
+  /*margin-top: 13px;*/
+  /*border: 1px solid yellow;*/
+}
+
+.sm-icon-link
+{
+  padding: 2px;
+  border-radius: 20px;
+  /*float: right;*/
+}
+
+.sm-icon-link:hover
+{
+  background-color: #252525;
+}
+
+.footer-bottom
+{
+  clear: both;
+  border: 1px solid #007a26;
+}
+.footer-bottom p{
+  text-align: center;
+}
+
+@media screen and (max-width: 600px)
+{
+  /*mobile devices*/
+  .footer-left, .footer-right{
+    width: 90%;
+  }
+
+  .footer-left
+  {
+    padding: 10px 20px;
+    /*border: 2px solid red;*/
+  }
+}

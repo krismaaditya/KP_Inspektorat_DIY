@@ -1,0 +1,189 @@
+body{
+}
+
+h1{
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: 300;
+	color: #fff;
+}
+
+.tombol{
+	padding: 8px 15px;
+	border-radius: 3px;
+	background: #ECF0F1;
+	border: none;
+	color: #232323;
+	font-size: 12pt;
+}
+
+.kotak{
+	margin: 20px auto;
+	width: 80%;
+	padding: 50px 50px 50px 50px;
+	border-radius: 3px;
+
+	/*box-shadow: kanan , bawah, tingkat-blur, spread-radius, warna */
+  box-shadow: 1px 1px 5px 1px grey;
+}
+
+input
+{
+	padding: 2px;
+	width: 95%;
+	height: 30px;
+	font-family: Tahoma;
+	margin: 5px 0px 10px 0px;
+}
+.buat-artikel-button
+{
+	padding: 2px;
+	width: 95%;
+	height: 30px;
+	font-family: Tahoma;
+	margin: 5px 0px 10px 0px;
+}
+
+.simpan-artikel-button
+{
+	background-color: #252525;
+	width: 20%;
+	height: 50px;
+	cursor: pointer;
+	color: white;
+	border: none;
+}
+
+.simpan-artikel-button:hover
+{
+	/*border-bottom: 3px solid #007a26;*/
+	background-color: #007a26;
+}
+.list-berita-div
+{
+  /*box-shadow: kanan , bawah, tingkat-blur, spread-radius, warna */
+  box-shadow: 1px 1px 2px 1px grey;
+  width: 200px;
+  height: 280px;
+  padding: 1px;
+  margin-bottom: 10px;
+  float: left;
+}
+
+.list-berita-div:hover
+{
+  box-shadow: 1px 1px 8px 1px grey;
+}
+
+.left-news-div
+{
+  float: left;
+  width: 200px;
+  height: 200px;
+  /*border: 1px solid green;*/
+}
+
+.other-news-thumbnails
+{
+
+  width: 200px;
+  height: 200px;
+}
+
+.right-news-div
+{
+  /*border: 1px solid green;*/
+  float: right;
+  width: 150px; /*66% atau 220px*/
+  height: 100px;
+  padding-top: 1px
+  padding-left: 10px;
+}
+
+.other-news-title
+{
+  font-size: 15px;
+  color: #252525;
+}
+
+.timedate
+{
+  font-size: 10px;
+  color: gray;
+  /*border: 1px solid green;*/
+}
+
+#artikelBtn
+{
+  width: 80px;
+  height: 40px;
+  border-radius: 3px 0 0 3px;
+  border: none;
+  margin-top: 8px;
+  cursor: pointer;
+  border: 1px solid white;
+  background-color: #252525;
+  color: white;
+}
+#artikelBtn:hover
+{
+  background-color: #007a26;
+}
+.artikelmodal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.artikelModal-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 50px;
+    padding: 0;
+    border: 2px solid white;
+    min-width: 240px;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 5px;
+}
+.artikelModal-header{
+    padding: 2px 16px;
+    background-color: #252525;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+.artikelModal-body{
+  padding: 12px 16px;
+}
+.artikelModal-footer{
+    padding: 2px 16px;
+    background-color: #252525;
+    color: white;
+    border-radius: 0 0 5px 5px;
+}
+.artikelclose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.artikelclose:hover,
+.artikelclose:focus
+{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}

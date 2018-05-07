@@ -1,0 +1,205 @@
+.body_Download_Center{
+  width: 95%;
+  margin: 0px auto;
+  font-family: sans-serif;
+  /*border: 2px solid green;*/
+  margin-top: 10px;
+  /*padding: 10px;*/
+  min-height: 800px;
+  margin-bottom: 20px;
+}
+.body_Download_Center h1{
+  margin-bottom: 0px;
+}
+.body_Download_Center h2{
+  margin: 20px 0px;
+}
+
+.tabel_Download_Center tr td{
+  /*border : 1px solid black;*/
+}
+.tabel_Download_Center{
+  border-collapse : collapse;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+th, td
+{
+  text-align: left;
+  /*padding: 20px;*/
+}
+
+th{
+  /*text-align: center;*/
+  background-color: #007a26;
+  color: white;
+  padding: 20px;
+}
+
+tr:nth-child(even)
+{
+  background-color: #f2f2f2;
+}
+
+.kolom_Body_Judul ul{
+  list-style: none;
+}
+
+.kolom_Body_Judul ul{
+  padding-left: 0px;
+}
+
+.kolom_Body{
+  text-align: center;
+}
+
+.dcmodal-body{
+  padding: 12px 12px;
+}
+
+/*Style Form Input Unggah File*/
+.judulDokumen, .deskripsiDokumen, .tipeDokumen, .ukuranDokumen{
+  width: 97%;
+  height: 30px;
+  margin-bottom: 10px;
+  border: none;
+  padding: 10px;
+  box-shadow: 1px 1px 10px 1px grey;
+}
+
+.pilihDokumen{
+  margin-bottom: 10px;
+  padding : 10px;
+}
+
+/*Style Untuk Tombol Unggah File */
+.unggahButton
+{
+  width: 50%;
+  height: 45px;
+  border: none;
+  background-color: #252525;
+  color: white;
+  font-size: 1em;
+}
+
+.unggahButton:hover {
+  background-color: #007a26;
+  color: white;
+  cursor: pointer;
+}
+
+.dcmodal-header{
+  padding: 2px 16px;
+  background-color: #252525;
+  color: white;
+  border-radius: 5px 5px 0 0;
+}
+
+.dcmodal-footer{
+  padding: 2px 16px;
+  font-size: 0.8em;
+  background-color: #252525;
+  color: white;
+  border-radius: 0 0 5px 5px;
+  text-align: center;
+}
+
+/* The Modal (background) */
+.dcmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 12; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.dcmodal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.dcclose {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.dcclose:hover,
+.dcclose:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*Style Untuk Tombol Unggah File*/
+#dcBtn {
+  border: none;
+  background-color: #007a26;
+  color: white;
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 3px;
+  /*border: 2px solid darkgreen;*/
+}
+
+#dcBtn:hover {
+  background-color: #252525;
+}
+
+span
+{
+  font-weight: bold;
+}
+
+.document-download-link
+{
+  background-color: #252525;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.document-download-link:hover
+{
+  background-color: #007a26;
+}
+
+.download_icon
+{
+  width: 20px;
+  height: auto;
+}

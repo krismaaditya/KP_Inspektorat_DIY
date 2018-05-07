@@ -1,0 +1,44 @@
+/*registrasi-user*/
+.rgt_User{
+  font-family: "Open Sans", sans-serif;
+	margin: 0 auto;
+	width: 30%;
+  /*border: 2px solid black;*/
+}
+input
+{
+	padding: 0px;
+	width: 95%;
+	height: 30px;
+	font-family: Tahoma;
+	margin: 0px 10px 10px 10px;
+}
+input[type=submit]
+{
+	background-color: #252525;
+	width: 50%;
+	height: 50px;
+	cursor: pointer;
+	color: white;
+	border: none;
+  font-size: 1.1em;
+}
+input[type=submit]:hover
+{
+	/*border-bottom: 3px solid #007a26;*/
+	background-color: #007a26;
+}
+label{
+  margin: 0px 10px;
+}
+#rgt_User{
+  margin-bottom: 0px;
+}
+hr{
+  border: 1.5px solid  #252525;
+  margin: 15px 0px;
+}
+.wajib_diisi{
+  color: red;
+}
+/*END registrasi user*/

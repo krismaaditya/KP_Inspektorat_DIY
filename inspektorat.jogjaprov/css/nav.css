@@ -1,0 +1,490 @@
+/*--- Navigasi ---*/
+.navbar {
+  background-color: #252525;
+  border-bottom: 5px solid #007a26;
+  position: sticky;
+  /*position: -webkit-sticky;
+  top: 0;*/
+  /*overflow: hidden;*/
+  z-index: 10;
+}
+
+/*khusus link utama*/
+.main-a{
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navbar ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar li{
+  float: left;
+}
+
+.navbar a{
+  display: block;
+  text-decoration: none;
+  padding: 20px 10px;
+  color: white;
+  font-size: 13px;
+}
+
+.navbar a:hover{
+  background-color: #007a26;
+}
+
+.active
+{
+  background-color: #007a26;
+}
+
+.navbar .burger
+{
+  display: none;
+}
+
+.profil-dropdown
+{
+  float: left;
+  overflow: hidden;
+}
+
+.profil-dropbtn
+{
+  margin: 0;
+}
+
+.profil-dropdown-content
+{
+  display: none;
+  position: absolute;
+  /*float: left;*/
+  background-color: #252525;
+  /*border-left: 3px solid #007a26;*/
+  z-index: 1;
+}
+
+.profil-dropdown-content a{
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  display: block;
+  text-align: left;
+}
+
+.profil-dropdown-content a:hover
+{
+  background-color: #007a26;
+}
+
+.profil-dropdown:hover .profil-dropdown-content
+{
+  display: block;
+}
+
+@media screen and (max-width: 1100px)
+{
+  .navbar .left-li:not(:first-child){display: none;}
+  .navbar .left-li a.burger{
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1100px)
+{
+  .navbar.responsive { position: relative; }
+
+  .navbar.responsive a.burger {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .navbar.responsive .left-li{
+    float: none;
+    display: block;
+    text-align: left;
+    /*left: 0;*/
+  }
+
+  .navbar.responsive .profil-dropdown {float: none;}
+
+  .navbar.responsive .profil-dropdown-content {position: relative;}
+
+  .navbar.responsive .profil-dropdown .profil-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/*====SEARCH DROPDOWN CSS====*/
+li.search-dropdown-container
+{
+  /*Use float: right on the dropdown class
+  to float the dropdown menu to the right*/
+  float: right;
+  /*margin-right: 10%;*/
+}
+
+.search-dropdown-button
+{
+  float: right;
+  cursor: pointer;
+  color: white;
+}
+
+.search-dropdown-content
+{
+  display: none;
+  position: absolute;
+  margin-top: 5%;
+  right: 0;
+  background-color: #252525;
+  width: auto;
+  height: 60px;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  /*use right:0 on the dropdown-content if
+  you want the dropdown content to go from right to left.*/
+}
+
+.search-dropdown-content .search-form
+{
+  color: black;
+  padding: 12px 16px;
+  display: block;
+  text-align: left;
+}
+
+.show
+{
+  display: block;
+}
+
+.searchbar
+{
+  margin-top: 0px;
+  width: 200px;
+        height: 15px;
+        padding: 10px 5px 10px 10px;
+        float: left;
+        font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+        border: 0;
+        background: #eee;
+        -moz-border-radius: 2px 0 0 2px;
+        -webkit-border-radius: 2px 0 0 2px;
+        border-radius: 2px 0 0 2px;
+}
+
+.search-button
+{
+  margin-top: 0px;
+  /*overflow: visible;*/
+        /*position: relative;*/
+        float: right;
+        border: 0;
+        /*padding: 0;*/
+        cursor: pointer;
+        height: 35px;
+        width: 80px;
+        font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+        color: #fff;
+        text-transform: uppercase;
+        background: #007a26;
+        -moz-border-radius: 0 2px 2px 0;
+        -webkit-border-radius: 0 2px 2px 0;
+        border-radius: 0 2px 2px 0;
+        text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+}
+
+.search-button:hover
+{
+  background: #303030;
+}
+
+.loginbutton , .registerbutton
+{
+  float: right;
+}
+
+#loginBtn
+{
+  margin-right: 10px;
+  width: 80px;
+  height: 40px;
+  border-radius: 0 3px 3px 0;
+  border: none;
+  margin-top: 8px;
+  cursor: pointer;
+  border: 1px solid white;
+  background-color: #252525;
+  color: white;
+}
+
+#registerBtn
+{
+  width: 80px;
+  height: 40px;
+  border-radius: 3px 0 0 3px;
+  border: none;
+  margin-top: 8px;
+  cursor: pointer;
+  border: 1px solid white;
+  background-color: #252525;
+  color: white;
+}
+
+#loginBtn:hover, #registerBtn:hover
+{
+  background-color: #007a26;
+}
+
+.loginmodal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.registermodal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.loginModal-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 200px;
+    padding: 0;
+    /*border: 1px solid white;*/
+    min-width: 240px;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.registerModal-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 50px;
+    padding: 0;
+    border: 2px solid white;
+    min-width: 240px;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.loginModal-header{
+    padding: 2px 16px;
+    background-color: #252525;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.registerModal-header{
+    padding: 2px 16px;
+    background-color: #252525;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+/* Modal Body */
+.loginModal-body{
+  padding: 15px 15px;
+}
+
+.registerModal-body{
+  padding: 15px 15px;
+}
+
+.namaInput, .passwordInput, .noktpInput, .alamatInput, .nohpInput, .emailInput
+{
+  width: 95%;
+  height: 35px;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+
+  border-radius: 3px;
+  /*border: 1px solid black;*/
+  border: none;
+  box-shadow: 1px 1px 5px 1px gray;
+}
+
+.loginButton
+{
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 3px;
+  /*background-color: #252525;*/
+  background-color: #007a26;
+  color: white;
+  cursor: pointer;
+}
+
+.loginButton:hover
+{
+  background-color: #252525;
+  /*background-color: #007a26;*/
+}
+
+/* Modal Footer */
+.loginModal-footer{
+    padding: 2px 16px;
+    background-color: #252525;
+    color: white;
+    border-radius: 0 0 5px 5px;
+}
+
+.registerModal-footer{
+    padding: 2px 16px;
+    background-color: #252525;
+    color: white;
+    border-radius: 0 0 5px 5px;
+}
+
+/* The Close Button */
+.logclose, .regclose {
+    color: white;
+    float: right;
+    font-size: 40px;
+    /*font-weight: bold;*/
+}
+
+.logclose:hover,
+.logclose:focus,
+.regclose:hover,
+.regclose:focus{
+    color: #007a26;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+
+/*==============AFTER LOGGED IN=============*/
+.user-button
+{
+  cursor: pointer;
+  background-color: #252525;
+  color: white;
+}
+
+li.user-dropdown-container
+{
+  /*Use float: right on the dropdown class
+  to float the dropdown menu to the right*/
+  float: right;
+  /*margin-right: 10%;*/
+}
+
+.user-dropdown-content
+{
+  display: none;
+  position: absolute;
+  background-color: #252525;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0;
+  /*margin-left: 10%;*/
+  /*use right:0 on the dropdown-content if
+  you want the dropdown content to go from right to left.*/
+}
+
+.user-dropdown-content .user-sub-menu-link
+{
+  color: white;
+  padding: 12px 16px;
+  display: block;
+  text-align: right;
+}
+
+.user-sub-menu-link:hover
+{
+  color: white;
+  background-color: #007a26;
+}
+
+.show-user-menu
+{
+  display: block;
+}
+
+.pesan-login-berhasil
+{
+  width: 90%;
+  height: 40px;
+  border: none;
+  background-color: #00a651;
+  color: white;
+  text-align: center;
+  margin: auto;
+  margin-top: 5px;
+  border-radius: 3px;
+  padding-top: 20px;
+}
+
+.pesan-login-gagal
+{
+  width: 90%;
+  height: 40px;
+  border: none;
+  background-color: #ed1c24;
+  color: white;
+  text-align: center;
+  margin: auto;
+  margin-top: 5px;
+  border-radius: 3px;
+  padding-top: 20px;
+}
+
+.pesan-login-unknown
+{
+  width: 90%;
+  height: 40px;
+  border: none;
+  background-color: #ed1c24;
+  color: white;
+  text-align: center;
+  margin: auto;
+  margin-top: 5px;
+  border-radius: 3px;
+  padding-top: 20px;
+}

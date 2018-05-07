@@ -1,0 +1,33 @@
+/*form polling masyarakat*/
+.sct_Polling{
+  width: 25%;
+  margin: 20px 0px;
+}
+#h3_Polling{
+  margin-bottom: 0px;
+}
+hr{
+  border: 1.5px solid black;
+}
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+ul li {
+  float: left;
+  margin-left: 12%;
+  margin-bottom: 16px;
+}
+#btn_Vote{
+  width: 100%;
+  height: 30px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+input[type=radio]{
+  transform: scale(1.5);
+}
+input: checked+label{
+  
+}
+/*end form polling masyarakat*/

@@ -1,0 +1,260 @@
+body{
+  /*font-family: "Open Sans", sans-serif;*/
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  width: 90%;
+  /*box-shadow: 1px 1px 15px 2px grey;*/
+}
+
+section
+{
+  float: left;
+  width: 65%;
+  /*border: 2px solid red;*/
+}
+
+aside
+{
+  float: right;
+  width: 30%;
+  /*border: 2px solid blue;*/
+}
+
+.content-title
+{
+  background-color: #252525;
+  border-bottom: 3px solid #007a26;
+  color: white;
+  padding: 5px;
+  font-family: Tahoma;
+}
+
+.slideshow-container
+{
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 1px 1px 15px 2px grey;
+}
+
+.newsSlides
+{
+  display: none;
+}
+
+.news-img
+{
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.prev, .next
+{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.9s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.next
+{
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover
+{
+  background-color: rgba(0,0,0,0.8);
+}
+
+.news-caption
+{
+  color: white;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.dot-navigation
+{
+  margin-top: 10px;
+  text-align: center;
+}
+.dot
+{
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  border: 1px solid #252525;
+  border-radius: 50%;
+
+  display: inline-block;
+  transition: background-color 0.9 ease;
+}
+
+.active, .dot:hover
+{
+  background-color: #252525;
+}
+
+.fade
+{
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade
+{
+  from  {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+/*=== aside ===*/
+aside a{
+  text-decoration: none;
+}
+
+.list-berita-div
+{
+  /*box-shadow: kanan , bawah, tingkat-blur, spread-radius, warna */
+  box-shadow: 1px 1px 2px 1px grey;
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 5%;
+}
+
+.list-berita-div:hover
+{
+  box-shadow: 1px 1px 8px 1px grey;
+}
+
+.left-news-div
+{
+  float: left;
+  width: 100px;
+  height: 100px;
+  /*border: 1px solid green;*/
+}
+
+.other-news-thumbnails
+{
+  width: 100px;
+  height: 100px;
+}
+
+.right-news-div
+{
+  /*border: 1px solid green;*/
+  float: right;
+  width: 220px; /*66% atau 220px*/
+  height: 100px;
+  padding-left: 10px;
+}
+
+.other-news-title
+{
+  font-size: 15px;
+  color: #252525;
+}
+
+.timedate
+{
+  font-size: 10px;
+  color: gray;
+  /*border: 1px solid green;*/
+}
+
+.other-news-caption
+{
+  font-size: 0.9em;
+  /*border: 1px solid blue;*/
+}
+
+.link-terkait-div
+{
+  /*box-shadow: kanan , bawah, tingkat-blur, spread-radius, warna */
+  box-shadow: 1px 1px 15px 1px grey;
+  height: 50px;
+  padding: 10px;
+  margin-bottom: 5%;
+}
+
+.link-images
+{
+  width: 50px;
+  height: 50px;
+}
+
+.left-link-div
+{
+  float: left;
+  width: 50px;
+  height: 50px;
+  /*border: 1px solid green;*/
+}
+
+.right-link-div
+{
+  float: right;
+  width: 270px; /*66% atau 220px*/
+  height: 50px;
+  /*border: 1px solid blue;*/
+}
+
+.right-link-div p{
+  font-family: Tahoma;
+  color: #252525;
+  font-size: 0.9em;
+}
+
+.calendar-div
+{
+  /*border: 2px solid red;*/
+}
+
+.linkto-edit-agenda
+{
+  background-color: #007a26;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 0.9em;
+  
+}
+
+.linkto-edit-agenda:hover{
+  background-color: #252525;
+}
+
+@media screen and (max-width: 800px)
+{
+  section{
+    display: block;
+    width: 100%;
+  }
+
+  aside{
+    display: block;
+    width: 100%;
+  }
+}
