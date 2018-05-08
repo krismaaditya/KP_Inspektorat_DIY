@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2018 at 08:32 PM
+-- Generation Time: May 08, 2018 at 09:23 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -40,7 +40,9 @@ CREATE TABLE `agenda` (
 INSERT INTO `agenda` (`id_agenda`, `tanggal`, `judul_agenda`, `rincian_agenda`) VALUES
 (6, '2018-05-07', 'Tes after edit', 'Tess setelah diedit gan'),
 (8, '2018-05-16', 'Pesta Makan Inspektorat', 'Memperingati 20 tahun Inspektorat DIY'),
-(10, '2018-05-12', 'Malam mingguan gan', 'hehe');
+(10, '2018-05-12', 'Malam mingguan gan', 'hehe'),
+(11, '2018-06-06', 'Jalan jalan ke Bandung', 'hhahaha'),
+(12, '2018-06-07', 'Jajajaja', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mattis malesuada aliquet. Suspendisse potenti. Proin eget aliquet nulla. Duis ut nulla diam. Nulla faucibus in erat a convallis. Nam ut rhoncus enim, id dignissim tellus. Nunc suscipit eu dolor ac accumsan. Etiam tortor lorem, congue a est non, pharetra sollicitudin ipsum. Aenean placerat velit dui, ut facilisis mauris dignissim eget. Suspendisse porttitor, orci varius tincidunt consectetur, nisi arcu varius lacus, ut tempus nulla ex et orci. Quisque porta magna sit amet ultrices molestie. Nam erat nisl, rutrum eget eros maximus, tempor eleifend velit. Suspendisse sit amet interdum odio. \r\nDonec neque sem, suscipit vitae enim a, facilisis dapibus mauris. Proin hendrerit et leo vitae porttitor. In hac habitasse platea dictumst. Fusce lobortis leo id urna convallis elementum. Proin tempus tellus dolor, sit amet tristique mauris pretium non. Vestibulum finibus, justo et sagittis feugiat, magna sem sollicitudin lacus, in porta nisi libero at quam. Sed lacus purus, dictum sed aliquet eget, dignissim et ante. Integer ut porta justo. Donec a eros risus. Cras et sem pellentesque, volutpat est nec, dapibus dui.\r\n');
 
 -- --------------------------------------------------------
 
@@ -70,7 +72,8 @@ INSERT INTO `berita` (`id_berita`, `judul_berita`, `isi_berita`, `waktu_berita`,
 (24, 'Tutorial memakan roti sambil merokok', '<p>lihat saja gambar untuk tau gimana caranya</p>\r\n', '2018-04-28 20:54:20', '8fcceeb597a0186aaee657996075d276.PNG', 0, 7),
 (25, 'Pria misterius dari Palo Alto', '<p>Tolong hubungi 14022 jika anda menemukan pria ini :&#39;((</p>\r\n', '2018-04-28 20:54:54', '457a0b0e7431a35f5c932cb71e04cdc3.png', 0, 7),
 (26, 'Pria ini makan ravioli di taman', '<p>Enak</p>\r\n', '2018-04-28 20:56:27', '0d5c7a1704d11edcda348c5880d3dae6.PNG', 0, 7),
-(27, 'Betnov mengalami kecelakaan', '<p>Jidatnya jadi tambah lebar</p>\r\n', '2018-04-28 20:58:50', 'ee43637f7ffb520b3f3f24555542c24e.png', 0, 7);
+(27, 'Betnov mengalami kecelakaan', '<p>Jidatnya jadi tambah lebar</p>\r\n', '2018-04-28 20:58:50', 'ee43637f7ffb520b3f3f24555542c24e.png', 0, 7),
+(28, '>tfw', '<p>niqqa</p>\r\n', '2018-05-08 17:43:38', '77292f15ae888abc32f1e5047290fa42.jpg', 0, 3);
 
 -- --------------------------------------------------------
 
@@ -204,7 +207,8 @@ INSERT INTO `komentar` (`id_komentar`, `id_user`, `id_berita`, `isi_komentar`, `
 (3, 3, 24, 'KKK : coba rokoknya ditaruh di kedua telinga agan', '2018-04-30 14:26:18'),
 (4, 3, 24, 'dan makanannya kalau bisa yang tidak berkuah', '2018-04-30 14:38:21'),
 (5, 3, 24, 'dijamin work gan', '2018-04-30 14:38:55'),
-(6, 8, 24, 'kalau saya sih work gan, saya makan padang, rokok 1 di telinga, yang lain di hidung', '2018-05-02 07:14:19');
+(6, 8, 24, 'kalau saya sih work gan, saya makan padang, rokok 1 di telinga, yang lain di hidung', '2018-05-02 07:14:19'),
+(7, 3, 23, 'berita macam apa ini', '2018-05-08 04:41:15');
 
 -- --------------------------------------------------------
 
@@ -219,6 +223,21 @@ CREATE TABLE `pegawai` (
   `jabatan_pegawai` int(10) NOT NULL,
   `foto_pegawai` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pegawai`
+--
+
+INSERT INTO `pegawai` (`id_pegawai`, `nik_pegawai`, `nama_pegawai`, `jabatan_pegawai`, `foto_pegawai`) VALUES
+(1, 1234, 'Ir. Hananto Hadi Purnomo, M.Sc.', 1, '3c106032e6e06896de70943c054f3d5b.jpg'),
+(2, 2345, 'Yudi Ismono, S.Sos, M.Acc.', 2, 'cf4e673fe65d8dd8ed4854435e3d05f3.jpg'),
+(3, 3456, 'Bernardinus Norowisnu, S.Kom., M.Hum.', 3, 'b781b90d0257bf093daf4ce4c510f11a.jpg'),
+(4, 4567, 'Lis Dwi Rahmawati, S.E.', 4, 'bc38ba9fcdfe9c3438a41accb9d02b8f.jpg'),
+(5, 5678, 'Farida Ekawati, S.IP', 5, '06a9ded7f12bcf000dca9bd8cf0f31e3.jpg'),
+(6, 6789, 'Eny Herawati, S.Pd., M.Si.', 6, '933480fa85cc79f950940d45bd3866c7.jpg'),
+(7, 7890, 'Ir. Eko Prastono, M.T.', 7, 'b31e8a77dcc4e7d67bcf4b431d217f5d.jpg'),
+(8, 8901, 'Muhammad Setiadi, S.Pt., M.Acc.', 8, 'e8dbceddec5233235e45e90e45658ac6.jpg'),
+(9, 9012, 'Dra. Siti Haryani, M.Si.', 9, '8ccf69189728f963d68d82917adfd07c.jpg');
 
 -- --------------------------------------------------------
 
@@ -416,12 +435,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `agenda`
 --
 ALTER TABLE `agenda`
-  MODIFY `id_agenda` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_agenda` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_berita` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `buku_tamu`
 --
@@ -441,12 +460,12 @@ ALTER TABLE `kategoripnd`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pegawai` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `pengaduan`
 --

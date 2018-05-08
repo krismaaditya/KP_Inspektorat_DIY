@@ -6,7 +6,7 @@ class Semua_berita extends CI_Controller
     parent::__construct();
     $this->load->helper(array('url','form','file'));
     $this->load->model('semua_berita_model');
-    $this->load->library('form_validation','session');
+    $this->load->library(array('form_validation','session'));
   }
 
   public function index()

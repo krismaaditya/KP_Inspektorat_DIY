@@ -16,184 +16,112 @@
 
     <section>
       <h3>STRUKTUR ORGANISASI</h3>
-      <button id="editPegawaiButton" type="button" name="button"><img class="editpegawai-icon" src="<?php echo base_url()?>/assets/icons/utilities icons/pencil-edit-button.png" alt="">Edit</button>
+      <hr>
 
-      <!-- edit pegawai modal pop-up -->
-      <div id="artikelModal" class="artikelmodal">
-        <div class="artikelModal-content">
+      <!-- TAMBAH -->
+      <!-- tambah button -->
+      <button id="tambahPegawaiButton" type="button" name="tambahbutton"><img class="tambahpegawai-icon" src="<?php echo base_url()?>/assets/icons/utilities icons/pencil-edit-button.png" alt="">Tambah</button>
 
-          <div class="artikelModal-header">
-            <span class="artikelclose">&times;</span>
-            <h3>Sunting pegawai dan jabatan</h3>
+      <!-- tambah modal pop-up -->
+      <div id="tambahPegawaiModal" class="tambahpegawaimodal">
+        <div class="tambahPegawaiModal-content">
+          <div class="tambahPegawaiModal-header">
+            <span class="tambahPclose">&times;</span>
+            <h3>Tambah data pegawai dan jabatan</h3>
+          </div>
+
+          <div class="tambahPegawaiModal-body">
+            <?php
+            $tpattributes = array('class' => 'tambahp', 'id' => 'tambahpegawaiform');
+            echo form_open_multipart('struktur_organisasi/tambah', $tpattributes);
+            ?>
+
+              <label for="tambah-nik-pegawai">NIK<span class="wajib_diisi">*</span></label>
+              <input class="data-tambah-pegawai" type="number" name="tambah-nik-pegawai" required value="<?php //echo $key->tanggal ?>">
+
+              <label for="tambah-nama-pegawai">Nama Pegawai<span class="wajib_diisi">*</span></label>
+              <input class="data-tambah-pegawai" type="text" name="tambah-nama-pegawai" required value="<?php //echo $key->judul_agenda ?>">
+
+              <label for="tambah-jabatan-pegawai">Jabatan Pegawai<span class="wajib_diisi">*</span></label>
+              <select class="data-tambah-pegawai" name="tambah-jabatan-pegawai">
+  						<?php if (count($jabatan_pegawai)): ?>
+                <?php foreach($jabatan_pegawai as $row):?>
+                  <option value="<?php echo $row->id_jabatan ?>"><?php echo $row->nama_jabatan ?></option>
+                <?php endforeach; ?>
+              <?php endif ?>
+  						</select>
+
+              <img id="foto-pegawai-preview-before-upload" alt="foto-preview" src="<?php echo base_url()?>assets/photos/default-photo-profile.png">
+
+              <label for="userfile">Upload Foto Pegawai ('.jpg' | '.jpeg' | '.png')</label>
+              <input type="file" id="userfile" name="userfile" required onchange="previewFoto()"/>
+
+              <input class="tambah-pegawai-button" type="submit" name="submit-tambah-pegawai-button" value="simpan">
+            <?php echo form_close(); ?>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDIT -->
+      <!-- edit button -->
+      <button id="editPegawaiButton" type="button" name="editbutton"><img class="editpegawai-icon" src="<?php echo base_url()?>/assets/icons/utilities icons/pencil-edit-button.png" alt="">Edit</button>
+
+      <!-- edit modal pop-up -->
+      <div id="editPegawaiModal" class="editpegawaimodal">
+        <div class="editPegawaiModal-content">
+          <div class="editPegawaiModal-header">
+            <span class="editPclose">&times;</span>
+            <h3>Sunting data pegawai dan jabatan</h3>
           </div>
 
           <div class="editPegawaiModal-body">
+            <?php if (count($pegawai)): ?>
+              <?php foreach($pegawai as $row):?>
+            <?php
+            $epattributes = array('class' => 'editp', 'id' => 'editpegawaiform');
+            echo form_open_multipart('struktur_organisasi/edit', $epattributes);
+            ?>
+              <img class="foto-pegawai-preview" src="<?php echo base_url()?>uploads/foto_profil/pejabat_struktural/<?php echo $row->foto_pegawai ?>" alt="">
+              <label for="userfile">Ganti Foto Pegawai</label>
+              <input type="file" id="userfileedit" name="userfileedit" required/>
 
-            <div class="card-wrapper">
-              <img class="card-photo" src="<?php echo base_url()?>assets/photos/pejabat_struktural/Hananto-243x300.jpg" alt="">
-                <div class="profile-details">
-                 <h5>Inspektur</h5>
-                 <hr>
-                 <p>Ir. Hananto Hadi Purnomo, M.Sc.</p>
-                </div>
-            </div>
+              <label for="edit-nik-pegawai">NIK<span class="wajib_diisi">*</span></label>
+              <input class="data-edit-pegawai" type="number" name="edit-nik-pegawai" required value="<?php echo $row->nik_pegawai ?>">
 
-            <div class="card-wrapper">
-              <img class="card-photo" src="<?php echo base_url()?>assets/photos/pejabat_struktural/Hananto-243x300.jpg" alt="">
-                <div class="profile-details">
-                 <h5>Inspektur</h5>
-                 <hr>
-                 <p>Ir. Hananto Hadi Purnomo, M.Sc.</p>
-                </div>
-            </div>
+              <label for="edit-nama-pegawai">Nama Pegawai<span class="wajib_diisi">*</span></label>
+              <input class="data-edit-pegawai" type="text" name="edit-nama-pegawai" required value="<?php echo $row->nama_pegawai ?>">
 
-            <div class="card-wrapper">
-              <img class="card-photo" src="<?php echo base_url()?>assets/photos/pejabat_struktural/Hananto-243x300.jpg" alt="">
-                <div class="profile-details">
-                 <h5>Inspektur</h5>
-                 <hr>
-                 <p>Ir. Hananto Hadi Purnomo, M.Sc.</p>
-                </div>
-            </div>
+              <label for="edit-jabatan-pegawai">Jabatan Pegawai<span class="wajib_diisi">*</span></label>
+              <input class="data-edit-pegawai readonly-data" type="text" name="edit-jabatan-pegawai" value="<?php echo $row->nama_jabatan ?>" readonly>
 
-            <div class="card-wrapper">
-              <img class="card-photo" src="<?php echo base_url()?>assets/photos/pejabat_struktural/Hananto-243x300.jpg" alt="">
-                <div class="profile-details">
-                 <h5>Inspektur</h5>
-                 <hr>
-                 <p>Ir. Hananto Hadi Purnomo, M.Sc.</p>
-                </div>
-            </div>
-
+              <input class="edit-pegawai-button" type="submit" name="submit-edit-pegawai-button" value="simpan">
+            <?php echo form_close(); ?>
+          <?php endforeach; ?>
+        <?php endif ?>
           </div>
         </div>
       </div>
 
 
+      <!-- BAGAN STRUKTUR ORGANISASI (GRID)-->
       <div class="grid-container">
-
-         <div id="grid-item" class="grid-item-inspektur">
-           <div class="card-wrapper">
-             <img class="card-photo" src="<?php echo base_url()?>assets/photos/pejabat_struktural/Hananto-243x300.jpg" alt="">
-               <div class="profile-details">
-                <h5>Inspektur</h5>
-                <hr>
-                <p>Ir. Hananto Hadi Purnomo, M.Sc.</p>
-               </div>
+        <?php if (count($pegawai)): ?>
+          <?php foreach($pegawai as $row):?>
+            <div id="grid-item" class="grid-item-<?php echo $row->id_jabatan ?>">
+              <div class="card-wrapper">
+                <img class="card-photo" src="<?php echo base_url()?>uploads/foto_profil/pejabat_struktural/<?php echo $row->foto_pegawai ?>" alt="">
+                  <div class="profile-details">
+                  <h5><?php echo $row->nama_pegawai ?></h5>
+                  <hr>
+                  <p><?php echo $row->nama_jabatan ?></p>
+                  </div>
              </div>
            </div>
+         <?php endforeach; ?>
+       <?php endif ?>
 
-           <!-- <div id="grid-item" class="garis-1">
-             <svg height="210" width="500">
-               <line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2" />
-             </svg>
-           </div> -->
-
-
-
-         <div id="grid-item" class="grid-item-sekretariat">
-           <div class="card-wrapper">
-             <img class="card-photo" src="<?php echo base_url()?>assets/photos/pejabat_struktural/YudiIsmono-254x300.jpg" alt="">
-             <div class="profile-details">
-               <h5>Sekretaris</h5>
-               <hr>
-               <p>Yudi Ismono, S.Sos, M.Acc.</p>
-             </div>
-           </div>
-         </div>
-
-
-         <div id="grid-item" class="grid-item-jabatanfungsional">Kelompok Jabatan Fungsional</div>
-
-         <div id="grid-item" class="grid-item-keuangan">
-           <div class="card-wrapper">
-             <img class="card-photo" src="<?php echo base_url()?>assets/photos/pejabat_struktural/norowisnu-254x300.jpg" alt="">
-             <div class="profile-details">
-               <h5>Kepala Sub Bagian Program dan Keuangan</h5>
-               <hr>
-               <p>Bernardinus Norowisnu, S.Kom., M.Hum.</p>
-             </div>
-           </div>
-         </div>
-
-         <div id="grid-item" class="grid-item-sub-umum">
-           <div class="card-wrapper">
-             <img class="card-photo" src="<?php echo base_url()?>assets/photos/pejabat_struktural/LisDwi-254x300.jpg" alt="">
-             <div class="profile-details">
-               <h5>Kepala Sub Bagian Umum</h5>
-               <hr>
-               <p>Lis Dwi Rahmawati, S.E.</p>
-             </div>
-           </div>
-         </div>
-
-
-         <div id="grid-item" class="grid-item-sub-ti">
-           <div class="card-wrapper">
-             <img class="card-photo" src="<?php echo base_url()?>assets/photos/pejabat_struktural/FaridaE-254x300.jpg" alt="">
-             <div class="profile-details">
-               <h5>Kepala Subbag Data, TI, Monev</h5>
-               <hr>
-               <p>Farida Ekawati, S.IP</p>
-             </div>
-           </div>
-         </div>
-
-         <div id="grid-item" class="grid-item-pembantu-pemerintahan">
-           <div class="card-wrapper">
-             <img class="card-photo" src="<?php //echo base_url()?>assets/photos/pejabat_struktural/EnyHera-254x300.jpg" alt="">
-             <div class="profile-details">
-               <h5>Irban Bidang Pemerintahan</h5>
-               <hr>
-               <p>Eny Herawati, S.Pd., M.Si.</p>
-             </div>
-           </div>
-         </div>
-
-
-         <div id="grid-item" class="grid-item-pembantu-perekonomian">
-           <div class="card-wrapper">
-             <img class="card-photo" src="<?php //echo base_url()?>assets/photos/pejabat_struktural/EkoP-254x300.jpg" alt="">
-             <div class="profile-details">
-               <h5>Irban Bidang Perekonomian</h5>
-               <hr>
-               <p>Ir. Eko Prastono, M.T.</p>
-             </div>
-           </div>
-         </div>
-
-         <div id="grid-item" class="grid-item-pembantu-kesejahteraan">
-           <div class="card-wrapper">
-             <img class="card-photo" src="<?php //echo base_url()?>assets/photos/pejabat_struktural/MSetiadi-255x300.jpg" alt="">
-             <div class="profile-details">
-               <h5>Irban Bidang Kesra</h5>
-               <hr>
-               <p>Muhammad Setiadi, S.Pt., M.Acc.</p>
-             </div>
-           </div>
-         </div>
-
-         <div id="grid-item" class="grid-item-pembantu-sarana">
-           <div class="card-wrapper">
-             <img class="card-photo" src="<?php //echo base_url()?>assets/photos/pejabat_struktural/SitiH-254x300.jpg" alt="">
-             <div class="profile-details">
-               <h5>Irban Bidang Sarana dan Prasarana</h5>
-               <hr>
-               <p>Dra. Siti Haryani, M.Si.</p>
-             </div>
-           </div>
-         </div>
-
-       </div>
-      <!-- <div class="so-dropdown">
-        <h3 class="jabatanh3">INSPEKTUR</h3>
-
-      </div> -->
-
-       <!-- <div class="bagan-organisasi">
-        <img src="<?php //echo base_url()?>assets/photos/pejabat_struktural/BaganOrganisasi.png" alt="">
-      </div> -->
-
+       <div id="grid-item" class="grid-item-jabatanfungsional">Kelompok Jabatan Fungsional</div>
+      </div>
     </section>
 
     <footer>
@@ -202,28 +130,55 @@
 
     <script>
           // Get the modal
-          var artikelModal = document.getElementById("artikelModal");
+          var epModal = document.getElementById("editPegawaiModal");
+          var tpModal = document.getElementById("tambahPegawaiModal");
 
           // Get the button that opens the modal
-          var nbBtn = document.getElementById("editPegawaiButton");
+          var epBtn = document.getElementById("editPegawaiButton");
+          var tpBtn = document.getElementById("tambahPegawaiButton");
 
           // Get the <span> element that closes the modal
-          var artikelspan = document.getElementsByClassName("artikelclose")[0];
+          var epspan = document.getElementsByClassName("editPclose")[0];
+          var tpspan = document.getElementsByClassName("tambahPclose")[0];
 
-          nbBtn.onclick = function() {
-            // modal.style.display = "none";
-            artikelModal.style.display = "block";
-          }
-          artikelspan.onclick = function() {
-            artikelModal.style.display = "none";
-          }
+          epBtn.onclick = function() {
+            epModal.style.display = "block";
 
-          // When the user clicks anywhere outside of the modal, close it
-          window.onclick = function(event) {
-            if (event.target == artikelModal) {
-            artikelModal.style.display = "none";
+            window.onclick = function(epevent) {
+              if (epevent.target == epModal) {
+              epModal.style.display = "none";
+              }
             }
           }
-          </script>
+
+          tpBtn.onclick = function() {
+            tpModal.style.display = "block";
+
+            window.onclick = function(tpevent) {
+              if (tpevent.target == tpModal) {
+              tpModal.style.display = "none";
+              }
+            }
+          }
+
+          epspan.onclick = function() {
+            epModal.style.display = "none";
+          }
+
+          tpspan.onclick = function() {
+            tpModal.style.display = "none";
+          }
+
+          // fungsi preview foto pegawai sebelum diupload
+          function previewFoto(){
+            document.getElementById("foto-pegawai-preview-before-upload").style.display = "block";
+            var oFReader = new FileReader();
+
+            oFReader.readAsDataURL(document.getElementById("userfile").files[0]);
+            oFReader.onload = function(oFREvent){
+              document.getElementById("foto-pegawai-preview-before-upload").src = oFREvent.target.result;
+            };
+          };
+    </script>
   </body>
 </html>

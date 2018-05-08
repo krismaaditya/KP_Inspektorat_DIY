@@ -5,27 +5,27 @@ section
   margin-bottom: 100px;
 }
 
-#editPegawaiButton
+#editPegawaiButton, #tambahPegawaiButton
 {
   border: none;
   background-color: #007a26;
   color: white;
-  width: 100px;
-  height: 50px;
+  width: auto;
+  height: 40px;
   cursor: pointer;
   border-radius: 3px;
   /*border: 2px solid darkgreen;*/
 }
 
-#editPegawaiButton:hover
+#editPegawaiButton:hover ,  #tambahPegawaiButton:hover
 {
   background-color: #252525;
   /*border-bottom: 4px solid #252525;*/
 }
 
-.editpegawai-icon
+.editpegawai-icon , .tambahpegawai-icon
 {
-  width: 20px;
+  width: 15px;
   height: auto;
 }
 
@@ -57,7 +57,21 @@ section
   box-shadow: 1px 1px 5px 2px grey;
 }
 
-.grid-item-inspektur
+/*===Catatan====
+.grid-item-1 : inspektur
+.grid-item-2 : sekretariat
+.grid-item-3 : subbag program n keuangan
+.grid-item-4 : subbag umum
+.grid-item-5 : subbag data, IT, Monev
+.grid-item-6 : Irban bidang pemerintahan
+.grid-item-7 : Irban bidang perekonomian
+.grid-item-8 : Irban bidang kesra
+.grid-item-9 : Irban bidang sarana dan prasarana
+
+*/
+
+
+.grid-item-1
 {
   grid-column-start: 2;
   grid-column-end: 3;
@@ -71,7 +85,7 @@ section
   grid-column-end: 1;
 }
 
-.grid-item-sekretariat
+.grid-item-2
 {
   grid-row-start: 2;
   grid-row-end: 2;
@@ -79,21 +93,21 @@ section
   grid-column-end: 5;
 }
 
-.grid-item-keuangan
+.grid-item-3
 {
   grid-row-start: 3;
   grid-row-end: 3;
   grid-column-start: 3;
   grid-column-end: 3;
 }
-.grid-item-sub-umum
+.grid-item-4
 {
   grid-row-start: 3;
   grid-row-end: 3;
   grid-column-start: 4;
   grid-column-end: 4;
 }
-.grid-item-sub-ti
+.grid-item-5
 {
   grid-row-start: 3;
   grid-row-end: 3;
@@ -101,7 +115,7 @@ section
   grid-column-end: 5;
 }
 
-.grid-item-pembantu-pemerintahan
+.grid-item-6
 {
   grid-row-start: 4;
   grid-row-end: 4;
@@ -109,7 +123,7 @@ section
   grid-column-end: 1;
 }
 
-.grid-item-pembantu-perekonomian
+.grid-item-7
 {
   grid-row-start: 4;
   grid-row-end: 4;
@@ -117,7 +131,7 @@ section
   grid-column-end: 2;
 }
 
-.grid-item-pembantu-kesejahteraan
+.grid-item-8
 {
   grid-row-start: 4;
   grid-row-end: 4;
@@ -125,14 +139,13 @@ section
   grid-column-end: 3;
 }
 
-.grid-item-pembantu-sarana
+.grid-item-9
 {
   grid-row-start: 4;
   grid-row-end: 4;
   grid-column-start: 4;
   grid-column-end: 4;
 }
-
 
 .so-dropdown:hover .card-wrapper
 {
@@ -192,8 +205,17 @@ section
   font-size: 1em;
 }
 
+.profile-details p
+{
+  text-align: center;
+  min-width: 170px;
+  width: 170px;
+  padding: 5px;
+  font-size: 0.7em;
+}
+
 /*MODAL*/
-.artikelmodal{
+.tambahpegawaimodal , .editpegawaimodal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 10; /* Sit on top */
@@ -205,7 +227,8 @@ section
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-.artikelModal-content{
+
+.tambahPegawaiModal-content{
     position: relative;
     background-color: #fefefe;
     margin: auto;
@@ -213,36 +236,124 @@ section
     padding: 0;
     border: 2px solid white;
     min-width: 240px;
-    width: 60%;
+    width: 440px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     animation-name: animatetop;
     animation-duration: 0.4s;
     border-radius: 5px;
 }
-.artikelModal-header{
+
+.editPegawaiModal-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 50px;
+    padding: 0;
+    border: 2px solid white;
+    min-width: 240px;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.tambahPegawaiModal-header , .editPegawaiModal-header{
     padding: 2px 16px;
     background-color: #252525;
     color: white;
     border-radius: 5px 5px 0 0;
 }
+
+.tambahPegawaiModal-body{
+  padding: 12px 16px;
+  height: auto;
+}
+
 .editPegawaiModal-body{
   padding: 12px 16px;
   height: auto;
 }
-.artikelModal-footer{
-    padding: 2px 16px;
-    background-color: #252525;
-    color: white;
-    border-radius: 0 0 5px 5px;
+
+.tambahp
+{
+  max-width: 400px;
+  background-color: #F7F7F7;
+  border:1px solid #E4E4E4;
+  padding: 25px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  color: #888;
+  text-shadow: 1px 1px 1px #FFF;
 }
-.artikelclose {
+
+.editp
+{
+  /*float: left;*/
+  /*display: block;*/
+    max-width: 400px;
+    background-color: green;
+    background-color: #F7F7F7;
+    border:1px solid #E4E4E4;
+    padding: 25px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+}
+
+.tambahp label, .editp label
+{
+  display: block;
+}
+
+.data-edit-pegawai , .data-tambah-pegawai
+{
+  float: right;
+  padding-left: 10px;
+	width: 95%;
+	height: 30px;
+	font-family: Tahoma;
+	margin: 0px 10px 10px 10px;
+}
+
+.readonly-data
+{
+  cursor: not-allowed;
+}
+
+#foto-pegawai-preview-before-upload
+{
+  border-radius: 5px;
+  min-width: 90px;
+  width: 90px;
+  height: 110px;
+}
+
+.tambah-pegawai-button, .edit-pegawai-button
+{
+  background: #007a26;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    border-radius: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.tambah-pegawai-button:hover, .edit-pegawai-button:hover{
+  background: #252525;
+}
+
+.editPclose, .tambahPclose{
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-.artikelclose:hover,
-.artikelclose:focus
+
+.editPclose:hover,
+.tambahPclose:hover,
+.editPclose:focus,
+.tambahPclose:focus
 {
     color: black;
     text-decoration: none;
