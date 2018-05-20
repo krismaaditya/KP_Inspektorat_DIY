@@ -19,9 +19,14 @@ class Semua_berita_model extends CI_model
 
 	public function get_berita()
 	{
+		$btquery = $this->db->query("SELECT b.*, kb.nama_kategori FROM berita b, kategori_berita  kb WHERE kb.id_kategori = b.kategori_berita ORDER BY id_berita DESC");
+		return $btquery->result();
+	}
+
+	public function get_kategori_berita()
+	{
 		$this->db->select('*');
-		$this->db->order_by('waktu_berita');
-		$query = $this->db->get('berita');
+		$query = $this->db->get('kategori_berita');
 		return $query->result();
 	}
 }

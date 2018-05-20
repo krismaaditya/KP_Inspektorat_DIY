@@ -24,7 +24,8 @@ class Agenda_model extends CI_Model
 
   public function data($number, $offset)
   {
-    return $query = $this->db->get('agenda', $number, $offset)->result();
+    $this->db->order_by('id_agenda', 'desc');
+    return $this->db->get('agenda', $number, $offset)->result();
   }
 
   public function delete($id_agenda)

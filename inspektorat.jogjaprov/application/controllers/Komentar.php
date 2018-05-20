@@ -12,52 +12,52 @@ class Komentar extends CI_Controller
   public function index()
   {
     $this->load->view('berita');
-    //$this->fetchkomentar($this->session->userdata('id_berita'));
-
-    // $this->fetchkomentar($this->session->userdata('id_berita'));
   }
 
   public function tulis($id_berita)
   {
-    $today = date("Y-m-d H:i:s");
+    $is_verified = $this->session->userdata('is_verified');
 
-    $komentar = array(
-      'id_user'=>$this->session->userdata('id_user'),
-      'id_berita'=>$id_berita,
-      'isi_komentar'=>$this->input->post('isi_komentar'),
-      'waktu_komentar'=>$today
-    );
+    if ($is_verified) {
+      $today = date("Y-m-d H:i:s");
 
-    $this->komentar_model->tulis($komentar);
-    if ($komentar)
-    {
-      redirect("berita/baca/$id_berita",'refresh');
+      $komentar = array(
+        'id_user'=>$this->session->userdata('id_user'),
+        'id_berita'=>$id_berita,
+        'isi_komentar'=>$this->input->post('isi_komentar'),
+        'waktu_komentar'=>$today
+      );
+
+      $this->komentar_model->tulis($komentar);
+      if ($komentar)
+      {
+        redirect("berita/baca/$id_berita",'refresh');
+      }
+      else {
+        $this->session->set_flashdata('error_msg','Error');
+        print_r("ERROR , tidak ada komen diantara kita");
+      }
     }
     else {
-      $this->session->set_flashdata('error_msg','Error');
-      print_r("ERROR , tidak ada komen diantara kita");
+      $this->load->view('unauthorized_access');
     }
+
 
   }
 
-  public function fetchkomentar($id_berita)
+  public function hapus()
   {
-    $datakomentar = $this->komentar_model->fetchkomentar($id_berita);
+    $is_an_admin = $this->session->userdata('is_admin');
+    $id_berita = $this->session->flashdata('id_berita_dibaca');
 
-    if ($datakomentar) {
-      $this->session->set_userdata('id_komentar', $datakomentar['id_komentar']);
-      $this->session->set_userdata('nama_user_komentar', $datakomentar['nama_user']);
-      $this->session->set_userdata('waktu_komentar', $datakomentar['waktu_komentar']);
-      $this->session->set_userdata('isi_komentar', $datakomentar['isi_komentar']);
-      // $this->session->set_userdata('kategori_pengaduan', $data['kategori_pengaduan']);
-      // $this->session->set_userdata('waktu_pengaduan', $data['waktu_pengaduan']);
-      // $this->session->set_userdata('nama_user', $data['nama_user']);
+    if ($is_an_admin) {
+      $id_komentar = $this->uri->segment(3);
+      $this->komentar_model->hapus($id_komentar);
+      redirect("berita/baca/$id_berita",'refresh');
     }
     else {
-      $this->session->set_flashdata('error_msg','Komentar tidak ditemukan');
+      $this->load->view('unauthorized_access');
     }
-
-    $this->load->view('berita');
   }
 }
 

@@ -5,11 +5,13 @@
 }
 
 .detailpengaduan{
-  width: 70%;
-  margin: 30px 15%;
+  width: 100%;
   height: auto;
+  min-height: 800px;
   border: 2px solid white;
-  box-shadow: 1px 1px 1px 1px #252525;
+  border: 1px solid #E4E4E4;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .detailkanan{
@@ -33,6 +35,7 @@
 
 .daftarDetailpndKomentar{
   margin: 0px;
+  margin-bottom: 3%;
 }
 
 .artDetailpndKomentar{
@@ -59,7 +62,8 @@ ul{
 #detailkmt{
   margin: 0px;
   margin-left: 5%;
-  margin-top: 2%;
+  margin-top: 5%;
+  margin-bottom: 4%;
 }
 
 #juduldetail{
@@ -68,6 +72,8 @@ ul{
   margin-bottom: 30px;
   word-wrap: break-word;
   word-break: break-all;
+  font-size: 2.2em;
+  text-transform: capitalize;
   /*height: 10%;
   box-shadow: 1px 2px 5px 1px #252525;*/
 }
@@ -137,7 +143,7 @@ ul{
 
 .tntclose:hover,
 .tntclose:focus {
-    color:  #007a26;
+    color:  red;
     text-decoration: none;
     cursor: pointer;
 }
@@ -181,7 +187,7 @@ ul{
   border: none;
   background-color: #007a26;
   color: white;
-  width: 50%;
+  width: 100%;
   height: 35px;
   cursor: pointer;
   border-radius: 3px;
@@ -190,5 +196,78 @@ ul{
 }
 
 #tntBtn:hover {
+  border-bottom: 3px solid #252525;
+}
+
+.delete-detailpengaduan-modal-window.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.deletepengaduanModal-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 100px;
+    padding: 0;
+    border: 2px solid white;
+    min-width: 240px;
+    width: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.deletejeniskategori-header{
+    padding: 2px 16px;
+    background-color: #252525;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.deletepengaduanModal-body{
+  padding: 12px 16px;
+}
+
+.delete-pengaduan-button, .deletetntclose {
+  /*float: left;*/
+	background-color: #007a26;
+	width: 115px;
+	height: auto;
+	cursor: pointer;
+	color: white;
+	border: none;
+  font-size: 1.4em;
+  padding: 20px;
+  border-radius: 2px;
+	text-align: center;
+}
+
+.delete-pengaduan-button:hover, .deletetntclose:hover{
+  background-color: #252525;
+}
+
+.deletepengaduanbutton{
+  border: none;
+  background-color: #007a26;
+  color: white;
+  width: 100%;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 3px;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.deletepengaduanbutton:hover{
   border-bottom: 3px solid #252525;
 }

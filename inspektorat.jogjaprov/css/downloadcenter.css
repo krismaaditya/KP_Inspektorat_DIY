@@ -1,10 +1,6 @@
 .body_Download_Center{
-  width: 95%;
-  margin: 0px auto;
-  font-family: sans-serif;
-  /*border: 2px solid green;*/
+  width: 100%;
   margin-top: 10px;
-  /*padding: 10px;*/
   min-height: 800px;
   margin-bottom: 20px;
 }
@@ -15,9 +11,14 @@
   margin: 20px 0px;
 }
 
-.tabel_Download_Center tr td{
-  /*border : 1px solid black;*/
+.tdc{
+  text-align: center;
 }
+#tdc{
+  width: 14%;
+  text-align: center;
+}
+
 .tabel_Download_Center{
   border-collapse : collapse;
   width: 100%;
@@ -25,37 +26,53 @@
   padding: 10px;
 }
 
-th, td
+table,th, td
 {
-  text-align: left;
-  /*padding: 20px;*/
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+
 }
 
-th{
-  /*text-align: center;*/
+th
+{
+  text-align: left;
+  padding: 20px;
   background-color: #007a26;
   color: white;
-  padding: 20px;
+}
+
+td
+{
+  font-size: 0.9em;
+  text-align: left;
+  padding: 20px 20px;
 }
 
 tr:nth-child(even)
 {
-  background-color: #f2f2f2;
+  background-color: #D1F9CF;
+}
+
+.kolom_Body_Nomor, .kolom_Body_Tipe, .kolom_Body_Ukuran, .kolom_Body_Link, .kolom_Body_Action{
+  text-align: center;
+}
+
+.kolom_Body_Judul{
+  padding: 10px 0px;
 }
 
 .kolom_Body_Judul ul{
   list-style: none;
-}
-
-.kolom_Body_Judul ul{
   padding-left: 0px;
+  margin-top: 15px;
+  margin-bottom: 0px;
 }
 
 .kolom_Body{
   text-align: center;
 }
 
-.dcmodal-body{
+.dcmodal-body, .hapuskatModal-body{
   padding: 12px 12px;
 }
 
@@ -91,24 +108,41 @@ tr:nth-child(even)
   cursor: pointer;
 }
 
-.dcmodal-header{
-  padding: 2px 16px;
+.listkategori,.numerlist{
+  display: inline;
+}
+
+.hapuskatbutton{
+  cursor: pointer;
+  color: #ed1c24;
+}
+.hapuskatbutton:hover{
+  text-decoration: underline;
+}
+
+.dcmodal-header, .hapuskatModal-header{
+  padding: 2px 10px;
   background-color: #252525;
   color: white;
   border-radius: 5px 5px 0 0;
 }
 
-.dcmodal-footer{
-  padding: 2px 16px;
-  font-size: 0.8em;
-  background-color: #252525;
-  color: white;
-  border-radius: 0 0 5px 5px;
-  text-align: center;
+/* The Modal (background) */
+.dcmodal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 12; /* Sit on top */
+    padding-top: 10px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* The Modal (background) */
-.dcmodal {
+.hapuskategori-modal-window.modal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 12; /* Sit on top */
@@ -123,13 +157,27 @@ tr:nth-child(even)
 }
 
 /* Modal Content */
-.dcmodal-content {
+.dcmodal-content{
     position: relative;
     background-color: #fefefe;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
     width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.hapuskatModal-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 18%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -202,4 +250,252 @@ span
 {
   width: 20px;
   height: auto;
+}
+
+.editagopen:hover , .deleteagopendialogbutton:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  color: red;
+}
+
+.agendamodal, .edit-agenda-modal-window.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.agendaModal-content , .editagendaModal-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 100px;
+    padding: 0;
+    border: 2px solid white;
+    min-width: 240px;
+    width: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 5px;
+}
+
+/*KHUSUS DELETE POPUP LEBIH KECIL*/
+.editagendaModal-header{
+  padding: 2px 5px;
+  background-color: #252525;
+  color: white;
+}
+.deleteagendaModal-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 100px;
+    padding: 0;
+    border: 2px solid white;
+    min-width: 240px;
+    width: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.agendaModal-header, .editagendaModal-header{
+    padding: 2px 16px;
+    background-color: #252525;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.agendaModal-body, .editagendaModal-body, .deleteagendaModal-body{
+  padding: 12px 16px;
+}
+
+.data-agenda
+{
+	padding: 0px;
+	width: 95%;
+	height: 30px;
+	font-family: Tahoma;
+	margin: 0px 10px 10px 10px;
+}
+
+textarea
+{
+	padding: 0px;
+	width: 95%;
+	height: 70px;
+	font-family: Tahoma;
+	margin: 0px 10px 10px 10px;
+  overflow: visible;
+}
+
+.submit-agenda-button, .edit-agenda-button
+{
+	background-color: #252525;
+	width: 50%;
+	height: 50px;
+	cursor: pointer;
+	color: white;
+	border: none;
+  font-size: 1.1em;
+}
+
+/*button dialog khusus DELETE agenda*/
+.delete-agenda-button
+
+{
+  /*float: left;*/
+	background-color: #007a26;
+	width: 115px;
+	height: auto;
+	cursor: pointer;
+	color: white;
+	border: none;
+  font-size: 1.1em;
+  padding: 20px;
+  border-radius: 2px;
+}
+
+.h-button, .th-button
+{
+  /*float: left;*/
+	background-color: #007a26;
+	width: 85px;
+	height: auto;
+	cursor: pointer;
+	color: white;
+	border: none;
+  font-size: 1.1em;
+  padding: 20px;
+  border-radius: 1px;
+}
+
+.formuploaddiv
+{
+  background-color: #F7F7F7;
+  border: 2px solid #E4E4E4;
+  padding: 10px;
+}
+
+.delete-agenda-button:hover, .deleteagclose:hover ,.h-button:hover, .th-button:hover{
+  background-color: #252525;
+}
+
+.deleteagclose
+{
+  /*float: left;*/
+  border-radius: 2px;
+	background-color: #007a26;
+	width: 115px;
+	height: auto;
+	cursor: pointer;
+	color: white;
+	border: none;
+  font-size: 1.1em;
+  padding: 20px;
+}
+
+/*.th-button
+{*/
+  /*float: left;*/
+  /*border-radius: 2px;
+	background-color: #007a26;
+	width: 115px;
+	height: auto;
+	cursor: pointer;
+	color: white;
+	border: none;
+  font-size: 1.1em;
+  padding: 20px;*/
+/*}*/
+
+.submit-agenda-button:hover , .edit-agenda-button:hover
+{
+	/*border-bottom: 3px solid #007a26;*/
+	background-color: #007a26;
+}
+
+.agendaModal-footer{
+    padding: 2px 16px;
+    background-color: #252525;
+    color: white;
+    border-radius: 0 0 5px 5px;
+}
+
+/* The Close Button */
+.agclose, .editagclose{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.editagclose:hover,
+.editagclose:focus,
+.agclose:hover,
+.agclose:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*Pagination links*/
+#pagination_link
+{
+  float: right;
+  /*border: 1px solid blue;*/
+}
+.dc-pagination-ul
+{
+  list-style-type: none;
+}
+
+.dc-pagination-ul li{
+  display: inline;
+  margin-right: 5px;
+}
+
+.dc-pagination-ul li a{
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  background-color: #252525;
+  text-decoration: none;
+  border: 1px solid #ccc;
+}
+
+.dc-pagination-ul li a:hover{
+  background-color: #007a26;
+}
+
+.dc-pagination-ul li.current{
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  background-color: #007a26;
+  text-decoration: none;
+}
+
+.kat-filter, .txt-input-cari{
+  border: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.button-cari{
+  padding: 10px;
+  background-color: #252525;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 2px;
 }

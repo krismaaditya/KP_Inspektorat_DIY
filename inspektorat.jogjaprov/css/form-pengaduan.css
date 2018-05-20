@@ -4,8 +4,11 @@ body{
 	width: 90%;
 }
 
-#pndJudul{
-	margin-left: 10px;
+.main-section{
+	float: left;
+}
+.aside-nav-pengaduan{
+	float: right;
 }
 
 input
@@ -56,23 +59,64 @@ input
 /*Style untuk List Pengaduan*/
 .listpengaduan-samping
 {
-  margin: 30px 0px;
-	margin-top: 40px;
-	margin-left: 10px;
-	box-shadow: 1px 1px 5px 2px grey;
-	width: 55%;
-	height: 0%;
+	border: 1px solid #e4e4e4;
+	width: 60%;
+	float: left;
+	min-height: 800px;
+	height: auto;
+	margin-top: 10px;
+	margin-bottom: 130px;
 }
+
+#piechart{
+	border: 1px solid black;
+	float: left;
+	margin-top: px;
+	width: 400px;
+	height: 400px;
+}
+
+.statistikpnd{
+	/*border: 1px solid red;*/
+	padding: 10px;
+	height: auto;
+}
+
+.statistikpnd p{
+	font-size: 0.9em;
+}
+
+.p-nama-kategori{
+	color: #2e3192;
+	font-weight: bold;
+}
+
+.sudah-ditindaklanjuti-b
+{
+	color: #00a651;
+}
+.belum-ditindaklanjuti-i{
+	color: #ed1c24;
+}
+
 
 .taPengaduan{
 	margin-top: 10px;
 	width: 95%;
 	height: 265px;
-	font-size: 1.3em;
+	font-size: 1.1em;
+}
+
+.hrdivider
+{
+	height: 3px;
+	background-color: white;
+	/*border: none;*/
+	border-left: 100px solid #007a26;
 }
 
 .wrapper{
-	width: 91%;
+	width: 90%;
 }
 
 .wrapper a{
@@ -84,7 +128,10 @@ input
 	margin-top: 0px;
 	margin-bottom: 0px;
 	padding-top: 20px;
-	word-wrap: break-word;
+	/*word-wrap: break-word;*/
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: clip;
 }
 
 .content-body{
@@ -102,11 +149,16 @@ input
 
 .baca_Lengkap:hover{
 	text-decoration: underline;
-	font-style: italic;
 }
 
 #list-ul li{
   list-style: none;
+}
+
+#list-ul{
+	margin-top: 0px;
+	margin-bottom: 50px;
+	font-size: 0.8em;
 }
 
 /*Style Form Pengaduan*/
@@ -123,7 +175,7 @@ input
 }
 
 /* The Modal (background) */
-.pndmodal {
+.pndmodal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 10; /* Sit on top */
@@ -144,7 +196,7 @@ input
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 70%;
+    width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -173,7 +225,7 @@ input
 
 .pndclose:hover,
 .pndclose:focus {
-    color: #000;
+    color: red;
     text-decoration: none;
     cursor: pointer;
 }
@@ -198,30 +250,32 @@ input
 	width: 400px;
 }
 
+#alertaduankosong{
+	text-align: center;
+	margin: 0px;
+	margin-top: 40px;
+}
+
 #pndBtn {
   border: none;
   background-color: #007a26;
   color: white;
-  width: 180px;
-  height: 75px;
   cursor: pointer;
-  border-radius: 5px;
-	float: right;
-	clear: both;
-	padding: 5px;
-	margin-top: 18px;
-	margin-right: 13%;
-	font-size: 1.5em;
-	font-weight: bold;
+  border-radius: 2px;
+	padding: 10px;
+	font-size: 1em;
 }
 
 #pndBtn:hover {
-  border-bottom: 5px solid #252525;
+	background-color: #252525;
 }
 
 #hre{
 	margin-bottom: 0px;
 	margin-top: 0px;
+	height: 1px;
+    background: #ccc;
+    border: 0;
 }
 
 .tkmodal {
@@ -274,7 +328,7 @@ input
 
 .tkclose:hover,
 .tkclose:focus {
-    color: #000;
+    color: red;
     text-decoration: none;
     cursor: pointer;
 }
@@ -303,4 +357,90 @@ input
 	margin-top: 10px;
 	margin-bottom: 0px;
 	width: 100%;
+}
+
+#judullistjenispengaduan{
+	margin-bottom: 3%;
+}
+
+.listjenispengaduan tr td	{
+	padding: 0px;
+	padding-bottom: 10%;
+}
+
+.delete-jeniskategori-modal-window.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.deletejeniskategoriModal-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 100px;
+    padding: 0;
+    border: 2px solid white;
+    min-width: 240px;
+    width: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.deletejeniskategori-header{
+    padding: 2px 16px;
+    background-color: #252525;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.deletejeniskategoriModal-body{
+  padding: 12px 16px;
+}
+
+.delete-jeniskategori-button, .deletejkclose {
+  /*float: left;*/
+	background-color: #007a26;
+	width: 115px;
+	height: auto;
+	cursor: pointer;
+	color: white;
+	border: none;
+  font-size: 1.4em;
+  padding: 20px;
+  border-radius: 2px;
+	text-align: center;
+}
+
+.delete-jeniskategori-button:hover, .deletejkclose:hover{
+  background-color: #252525;
+}
+
+.deletejeniskategoributton{
+	margin-left: 70px;
+}
+
+.deletejeniskategoributton:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  color: red;
+}
+
+@media screen and (max-width: 900px)
+{
+	.aside-nav-pengaduan{
+		float: left;
+	}
+	.listpengaduan-samping{
+		width: 90%;
+	}
 }

@@ -41,6 +41,12 @@ class M_detail_pengaduan extends CI_Model
 
   }
 
+  public function delete($id_pengaduan)
+  {
+    $this->db->where('id_pengaduan', $id_pengaduan);
+    $this->db->delete('pengaduan');
+  }
+
 }
 
 ?>

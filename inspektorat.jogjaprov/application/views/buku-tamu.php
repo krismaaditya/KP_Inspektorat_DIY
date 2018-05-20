@@ -1,7 +1,7 @@
 <?php
-//$sql = "SELECT * FROM buku_tamu ORDER BY tanggal_kunjungan ASC LIMIT 10";
-//$query = $this->db->query($sql);
- ?>
+$is_loggedin = $this->session->userdata('logged_in');
+$is_an_admin = $this->session->userdata('is_admin');
+?>
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +17,11 @@
 			<?php include 'nav.php' ?>
 		</nav>
 
-		<h4>Buku tamu Inspektorat DIY</h4>
+    <?php if ($is_loggedin) { ?>
+    <?php if ($is_an_admin) { ?>
+
+		<h4 class="h4berita">Buku tamu Inspektorat DIY</h4>
+		<hr class="hrdivider">
 
 		<button id="bukutamuBtn">+Catat baru</button>
 
@@ -56,6 +60,10 @@
 			</div>
 		</div>
 
+		<div class="bt-pagination">
+      <?php echo $this->pagination->create_links(); ?>
+    </div>
+
 		<div class="table-list-buku-tamu-div">
 			<table>
 				<tr>
@@ -65,6 +73,7 @@
 					<th>Tanggal kunjungan</th>
 					<th>Keperluan kunjungan</th>
 					<th>Lampiran</th>
+					<th>Action</th>
 				</tr>
 				<!-- isi -->
 				<?php
@@ -79,21 +88,40 @@
               <td>
                 <?php if ($key->dokumentasi): ?>
                   <a class="document-download-link" href="<?php echo base_url('uploads/lampiran_buku_tamu/'.$key->dokumentasi);?>">
-                  <img class="download_icon" src="<?php //echo base_url(); ?>assets/icons/utilities icons/download.png"/> Download
+                  <img class="download_icon" src="assets/icons/utilities icons/download.png"/> Download
                   </a>
                   <?php else: ?>
                     <?php echo "Tidak ada"; ?>
                 <?php endif; ?>
               </td>
+							<td>
+								<a class="deleteagopendialogbutton" data-modal="deleteagendaModal<?php echo $key->id_buku_tamu ?>">Hapus</a>
+								<!-- DELETE CATATAN TAMU MODAL -->
+								<div id="deleteagendaModal<?php echo $key->id_buku_tamu?>" class="hapus-tamu-modal-window modal">
+									<div class="deleteagendaModal-content">
+										<div class="editagendaModal-header">
+											<h4>Hapus Catatan</h4>
+										</div>
+										<div class="deleteagendaModal-body">
+											<p>Apakah anda yakin ingin menghapus catatan tamu bernama <?php echo $key->nama_pengunjung ?> pada tanggal <?php echo $key->tanggal_kunjungan ?> ? </p>
+											<p>Anda tidak dapat mengembalikan action ini.</p>
+												<form role="form" class="tulisagendaform" action="<?php echo base_url('buku_tamu/hapus/'); echo $key->id_buku_tamu ?>" method="post">
+												<input class="delete-agenda-button" type="submit" name="submit-delete-agenda-button" value="Ya">
+												<input class="deleteagclose" data-modal="deleteagendaModal<?php echo $key->id_buku_tamu ?>" type="button" value="Tidak">
+											</form>
+										</div>
+									</div>
+								</div>
+							</td>
 		  			</tr>
 						<?php } ?>
 			</table>
 		</div>
 
-    <div class="bt-pagination">
-      <?php echo $this->pagination->create_links(); ?>
-    </div>
 
+  <?php } else { ?>
+    <h3>Maaf, hanya Admin yang bisa melihat halaman ini.</h3>
+  <?php } } else { } ?>
   <footer>
   	<?php include 'footer.php' ?>
   </footer>
@@ -125,6 +153,31 @@
 		btmodal.style.display = "none";
 		}
 	}
+
+	//---------------------------------------------------//
+	var deleteagbtn = document.getElementsByClassName("deleteagopendialogbutton");
+	var tidakBtn = document.getElementsByClassName("deleteagclose");
+  for (var i = 0; i < deleteagbtn.length; i++) {
+        var deleteBtn = deleteagbtn[i];
+        deleteBtn.addEventListener("click", function(){
+          deletemodal = document.getElementById(this.dataset.modal);
+          deletemodal.style.display = "block";
+
+          window.onclick = function(deagevent) {
+        		if (deagevent.target == deletemodal) {
+        		deletemodal.style.display = "none";
+        		}
+        	}
+          }, false);
+      }
+
+  for (var i = 0; i < tidakBtn.length; i++) {
+    var tdkBtn = tidakBtn[i];
+    tdkBtn.addEventListener("click", function(){
+      var deletemodal = document.getElementById(this.dataset.modal);
+      deletemodal.style.display = "none";
+      }, false);
+  }
 	</script>
 
 </body>

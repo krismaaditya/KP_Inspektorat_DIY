@@ -92,15 +92,15 @@ $('#loginsubmit').click(function() {
         type: 'POST',
         data: login_data,
         success: function(response) {
-            if (response == 1){
+            if (response == "yes"){
               $('#alert-msg').html('<div class="pesan-login-berhasil">Login berhasil, </div>');
               window.location = urlwelcome;
             }
-            else if (response == 0){
+            else if (response == "no"){
               $('#alert-msg').html('<div class="pesan-login-gagal">Email atau password anda salah.</div>');
             }
             else{
-              $('#alert-msg').html('<div class="pesan-login-unknown">Email atau password tidak ditemukan fam</div>');
+              $('#alert-msg').html('<div class="pesan-login-unknown">Email atau password tidak ditemukan.</div>');
             }
         }
     });

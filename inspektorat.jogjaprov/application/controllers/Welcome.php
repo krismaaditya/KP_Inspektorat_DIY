@@ -33,6 +33,7 @@ class Welcome extends CI_Controller {
 	{
 		$data['berita_terbaru_items'] = $this->home_model->berita_terbaru();
 		$data['berita_lainnya_items'] = $this->home_model->berita_lainnya();
+		$data['kegiatan'] = $this->home_model->kegiatan();
 
 		//idk why
 		$data['agenda'] = $this->agenda_model->get_agenda();

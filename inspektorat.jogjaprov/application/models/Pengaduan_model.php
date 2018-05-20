@@ -13,6 +13,7 @@ class Pengaduan_model extends CI_model
     $this->db->where('id_pengaduan', $id_pengaduan);
     // $this->db->where('kategori.id_kategori', 'berita.kategori_berita');
 
+
     if ($query = $this->db->get()) {
       return $query->row_array();
     }
@@ -24,5 +25,12 @@ class Pengaduan_model extends CI_model
 	public function tambahkategoripengaduan($kategoripnd) {
 		$this->db->insert('kategoripnd',$kategoripnd);
 	}
+
+
+  public function delete($id_kategoripnd)
+  {
+    $this->db->where('id_kategoripnd', $id_kategoripnd);
+    $this->db->delete('kategoripnd');
+  }
 }
 ?>

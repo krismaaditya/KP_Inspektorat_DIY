@@ -14,7 +14,8 @@
       <?php include'nav.php'; ?>
     </nav>
 
-    <h3>Tulis, edit atau hapus agenda</h3>
+    <h4 class="h4berita">Tulis, edit atau hapus agenda</h4>
+    <hr class="hrdivider">
 
     <div class="wrapper">
 
@@ -55,6 +56,9 @@
     		</div>
         <!-- END OF FORM TULIS AGENDA MODAL -->
 
+        <div class="agenda-pagination">
+          <?php echo $this->pagination->create_links(); ?>
+        </div>
         <table id="tabel-agenda">
   				<tr>
             <th>No.</th>
@@ -139,10 +143,6 @@
 
 
 
-      </div>
-
-      <div class="agenda-pagination">
-        <?php echo $this->pagination->create_links(); ?>
       </div>
 
     </div>

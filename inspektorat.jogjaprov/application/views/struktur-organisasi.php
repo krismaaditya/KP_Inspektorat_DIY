@@ -1,3 +1,7 @@
+<?php
+$is_loggedin = $this->session->userdata('logged_in');
+$is_an_admin = $this->session->userdata('is_admin');
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,6 +24,8 @@
 
       <!-- TAMBAH -->
       <!-- tambah button -->
+      <?php if ($is_loggedin) { ?>
+      <?php if ($is_an_admin) { ?>
       <button id="tambahPegawaiButton" type="button" name="tambahbutton"><img class="tambahpegawai-icon" src="<?php echo base_url()?>/assets/icons/utilities icons/pencil-edit-button.png" alt="">Tambah</button>
 
       <!-- tambah modal pop-up -->
@@ -31,11 +37,8 @@
           </div>
 
           <div class="tambahPegawaiModal-body">
-            <?php
-            $tpattributes = array('class' => 'tambahp', 'id' => 'tambahpegawaiform');
-            echo form_open_multipart('struktur_organisasi/tambah', $tpattributes);
-            ?>
-
+            <!-- form tambah pegawai -->
+            <form class="tambahp" id="tambahpegawaiform" action="<?php echo base_url('struktur_organisasi/tambah'); ?>" enctype="multipart/form-data" method="post">
               <label for="tambah-nik-pegawai">NIK<span class="wajib_diisi">*</span></label>
               <input class="data-tambah-pegawai" type="number" name="tambah-nik-pegawai" required value="<?php //echo $key->tanggal ?>">
 
@@ -54,10 +57,11 @@
               <img id="foto-pegawai-preview-before-upload" alt="foto-preview" src="<?php echo base_url()?>assets/photos/default-photo-profile.png">
 
               <label for="userfile">Upload Foto Pegawai ('.jpg' | '.jpeg' | '.png')</label>
-              <input type="file" id="userfile" name="userfile" required onchange="previewFoto()"/>
+              <input type="file" id="addfotopegawai" name="userfile" required onchange="previewFoto()"/>
 
               <input class="tambah-pegawai-button" type="submit" name="submit-tambah-pegawai-button" value="simpan">
-            <?php echo form_close(); ?>
+            </form>
+            <!-- end of form tambah pegawai -->
           </div>
         </div>
       </div>
@@ -77,13 +81,11 @@
           <div class="editPegawaiModal-body">
             <?php if (count($pegawai)): ?>
               <?php foreach($pegawai as $row):?>
-            <?php
-            $epattributes = array('class' => 'editp', 'id' => 'editpegawaiform');
-            echo form_open_multipart('struktur_organisasi/edit', $epattributes);
-            ?>
-              <img class="foto-pegawai-preview" src="<?php echo base_url()?>uploads/foto_profil/pejabat_struktural/<?php echo $row->foto_pegawai ?>" alt="">
+            <form class="editp" id="editpegawaiform" action="<?php echo base_url('struktur_organisasi/edit/'.$row->id_pegawai); ?>" enctype="multipart/form-data" method="post">
+              <img id="edit-foto-pegawai-preview-before-upload" class="edit-foto-pegawai-preview" src="<?php echo base_url()?>uploads/foto_profil/pejabat_struktural/<?php echo $row->foto_pegawai ?>" alt="">
+
               <label for="userfile">Ganti Foto Pegawai</label>
-              <input type="file" id="userfileedit" name="userfileedit" required/>
+              <input type="file" id="editfotofile" name="userfile" onchange="previewEditFoto()"/>
 
               <label for="edit-nik-pegawai">NIK<span class="wajib_diisi">*</span></label>
               <input class="data-edit-pegawai" type="number" name="edit-nik-pegawai" required value="<?php echo $row->nik_pegawai ?>">
@@ -92,15 +94,19 @@
               <input class="data-edit-pegawai" type="text" name="edit-nama-pegawai" required value="<?php echo $row->nama_pegawai ?>">
 
               <label for="edit-jabatan-pegawai">Jabatan Pegawai<span class="wajib_diisi">*</span></label>
-              <input class="data-edit-pegawai readonly-data" type="text" name="edit-jabatan-pegawai" value="<?php echo $row->nama_jabatan ?>" readonly>
+              <select class="data-edit-pegawai readonly-data" name="edit-jabatan-pegawai" readonly>
+                <option value="<?php echo $row->id_jabatan ?>"><?php echo $row->nama_jabatan ?></option>
+              </select>
 
               <input class="edit-pegawai-button" type="submit" name="submit-edit-pegawai-button" value="simpan">
-            <?php echo form_close(); ?>
+            </form>
           <?php endforeach; ?>
         <?php endif ?>
           </div>
         </div>
       </div>
+    <?php } else { ?>
+    <?php } } else { } ?>
 
 
       <!-- BAGAN STRUKTUR ORGANISASI (GRID)-->
@@ -120,7 +126,17 @@
          <?php endforeach; ?>
        <?php endif ?>
 
-       <div id="grid-item" class="grid-item-jabatanfungsional">Kelompok Jabatan Fungsional</div>
+       <div id="grid-item" class="grid-item-jabatanfungsional">
+         <div class="card-wrapper">
+           <img class="card-photo" src="<?php echo base_url()?>assets/photos/default-photo-profile.png" alt="">
+             <div class="profile-details">
+             <h5>Kelompok Jabatan Fungsional</h5>
+             <hr>
+             <p>Kelompok Jabatan Fungsional</p>
+             </div>
+        </div>
+        </div>
+
       </div>
     </section>
 
@@ -174,9 +190,21 @@
             document.getElementById("foto-pegawai-preview-before-upload").style.display = "block";
             var oFReader = new FileReader();
 
-            oFReader.readAsDataURL(document.getElementById("userfile").files[0]);
+            oFReader.readAsDataURL(document.getElementById("addfotopegawai").files[0]);
             oFReader.onload = function(oFREvent){
               document.getElementById("foto-pegawai-preview-before-upload").src = oFREvent.target.result;
+            };
+          };
+
+          // fungsi preview edit foto pegawai sebelum diupload
+
+          function previewEditFoto(){
+            document.getElementById("edit-foto-pegawai-preview-before-upload").style.display = "block";
+            var oFReader2 = new FileReader();
+
+            oFReader2.readAsDataURL(document.getElementById("editfotofile").files[0]);
+            oFReader2.onload = function(oFREvent2){
+              document.getElementById("edit-foto-pegawai-preview-before-upload").src = oFREvent2.target.result;
             };
           };
     </script>

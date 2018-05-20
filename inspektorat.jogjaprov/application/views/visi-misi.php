@@ -1,11 +1,8 @@
-<?php
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Inspektorat DIY - Visi dan Misi
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <title>Inspektorat DIY - Landasan Hukum
     </title>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
   </head>
@@ -17,17 +14,19 @@
     <nav>
       <?php include'nav.php'; ?>
     </nav>
-    <div class="berita">
-      <h1>Visi dan Misi</h1>
-      <!-- <div class="gambar">
-        <img class="gambar_detail_berita" src="<?php echo base_url(); ?>uploads/berita/images/<?php echo $this->session->userdata('gambar_berita'); ?>"/>
-      </div> -->
+    <div class="landasanhukum-div">
+      <h4>Visi dan Misi Inspektorat DIY</h4>
+      <img class="garuda" src="<?php echo base_url('assets/images/garuda-bw-286x300.jpg'); ?>" alt="">
 
-      <h3>VISI</h3>
-      <p>"Menjadi katalisator pencapaian tujuan dan sasaran strategis Pemerintah Daerah Istimewa Yogyakarta"</p>
+      <ul class="lhul">
+        <li class="lhli">
+          "Menjadi katalisator pencapaian tujuan dan sasaran strategis Pemerintah Daerah Istimewa Yogyakarta"
+        </li>
 
-      <h4>MISI</h4>
-      <p>"Menjamin kualitas pencapaian tujuan dan sasaran strategis Pemerintah Daerah Istimewa Yogyakarta"</p>
+        <li class="lhli">
+          "Menjamin kualitas pencapaian tujuan dan sasaran strategis Pemerintah Daerah Istimewa Yogyakarta"
+        </li>
+      </ul>
 
       </div>
 

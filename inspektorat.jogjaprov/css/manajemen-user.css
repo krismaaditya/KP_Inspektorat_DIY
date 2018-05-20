@@ -1,0 +1,359 @@
+#manuserBtn
+{
+  border: none;
+  background-color: #007a26;
+  color: white;
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 3px;
+  /*border: 2px solid darkgreen;*/
+}
+
+#manuserBtn:hover
+{
+  background-color: #252525;
+  /*border-bottom: 4px solid #252525;*/
+}
+
+.page{
+  width: 50%;
+  margin: 1% 46%;
+  height: 50px;
+  list-style-type: none;
+}
+
+.page li{
+  float: left;
+  margin: 5px;
+  padding: 5px 8px;
+  border-radius: 2px;
+  border: 1px solid white;
+}
+
+.page li:hover{
+  text-decoration: underline;
+}
+
+.page li a{
+  color: black;
+  text-decoration: none;
+  font: Tahoma;
+  padding: 5px;
+}
+
+.current{
+  background-color: #007a26;
+  color: white;
+  padding: 5px;
+}
+
+.table-list-manajemen-user-div
+{
+  width: 95%;
+  /*margin: auto;*/
+  margin-top: 30px;
+  margin-bottom: 30px;
+  min-height: 800px;
+}
+table,th, td
+{
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+th
+{
+  text-align: left;
+  padding: 20px;
+  background-color: #007a26;
+  color: white;
+}
+
+td
+{
+  text-align: left;
+  padding: 1px 10px;
+}
+
+
+tr:nth-child(even)
+{
+  background-color: #f2f2f2;
+}
+
+.document-download-link
+{
+  background-color: #252525;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.document-download-link:hover
+{
+  background-color: #007a26;
+}
+
+.download_icon
+{
+  width: 20px;
+  height: auto;
+}
+
+/*registrasi-user*/
+.manajemen-user{
+  /*font-family: "Open Sans", sans-serif;*/
+	margin: 20px auto;
+	width: 60%;
+  /*border: 2px solid black;*/
+  /*box-shadow: kanan , bawah, tingkat-blur, spread-radius, warna */
+  box-shadow: 1px 1px 5px 1px grey;
+  padding: 10px;
+}
+
+.biodata
+{
+	padding: 0px;
+	width: 95%;
+	height: 30px;
+	font-family: Tahoma;
+	margin: 0px 10px 10px 10px;
+}
+
+textarea
+{
+	padding: 0px;
+	width: 95%;
+	height: 70px;
+	font-family: Tahoma;
+	margin: 0px 10px 10px 10px;
+  overflow: visible;
+}
+
+.registrasi-button
+{
+	background-color: #252525;
+	width: 50%;
+	height: 50px;
+	cursor: pointer;
+	color: white;
+	border: none;
+  font-size: 1.1em;
+}
+
+.registrasi-button:hover
+{
+	/*border-bottom: 3px solid #007a26;*/
+	background-color: #007a26;
+}
+label{
+  margin: 0px 10px;
+}
+#rgt_User{
+  margin-bottom: 0px;
+}
+hr{
+  border: 1.5px solid  #252525;
+  margin: 15px 0px;
+}
+.wajib_diisi{
+  color: red;
+}
+/*END registrasi user*/
+.deleteagopendialogbutton
+{
+  margin: 5px;
+  padding: 10px;
+  border-radius: 2px;
+  background-color: #ed1c24;
+  cursor: pointer;
+  color: white;
+  border: 1px solid firebrick;
+  /*display: inline;*/
+  display: block;
+}
+.deleteagopendialogbutton:hover,
+.verifyopendialogbutton:hover,
+.unverifyopendialogbutton:hover{
+  text-decoration: underline;
+}
+.verifyopendialogbutton{
+  margin: 5px;
+  padding: 10px;
+  border-radius: 2px;
+  background-color: #00a651;
+  cursor: pointer;
+  color: white;
+  border: 1px solid darkgreen;
+  /*display: inline;*/
+  /*float: right;*/
+  display: block;
+}
+.unverifyopendialogbutton{
+  margin: 5px;
+  padding: 10px;
+  border-radius: 2px;
+  background-color: #2e3192;
+  cursor: pointer;
+  color: white;
+  border: 1px solid darkgreen;
+  /*display: inline;*/
+  /*float: right;*/
+  display: block;
+}
+
+/*===================MODALS===============*/
+.manusermodal, .edit-agenda-modal-window.modal, .verifyuser-modal-window.modal , .unverifyuser-modal-window.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.manuserModal-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 100px;
+    padding: 0;
+    border: 2px solid white;
+    min-width: 240px;
+    width: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.manuserModal-header{
+    padding: 2px 16px;
+    background-color: #252525;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.manuserModal-body{
+  padding: 12px 16px;
+}
+
+/* The Close Button */
+.muclose{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.muclose:hover,
+.muclose:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.deleteagendaModal-content, .verifyuserModal-content , .unverifyuserModal-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 100px;
+    padding: 0;
+    border: 2px solid white;
+    min-width: 240px;
+    width: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.deleteagendaModal-body, .verifyuserModal-body , .unverifyuserModal-body{
+  padding: 12px 16px;
+}
+
+/*button dialog khusus DELETE agenda*/
+.delete-agenda-button , .verifyuser-button , .unverifyuser-button
+{
+  /*float: left;*/
+	background-color: #007a26;
+	width: 115px;
+	height: auto;
+	cursor: pointer;
+	color: white;
+	border: none;
+  font-size: 1.1em;
+  padding: 20px;
+  border-radius: 2px;
+}
+
+.delete-agenda-button:hover,
+.deleteagclose:hover,
+.verifyuser-button:hover,
+.verifyuserclose:hover,
+.unverifyuserclose:hover{
+  background-color: #252525;
+}
+
+.deleteagclose , .verifyuserclose , .unverifyuserclose
+{
+  /*float: left;*/
+  border-radius: 2px;
+	background-color: #007a26;
+	width: 115px;
+	height: auto;
+	cursor: pointer;
+	color: white;
+	border: none;
+  font-size: 1.1em;
+  padding: 20px;
+}
+
+.verified-p{
+  color: #007a26;
+  font-weight: bold;
+}
+
+.unverified-p{
+  color: #ed1c24;
+  font-weight: bold;
+}
+
+.mu-profile-link
+{
+  text-decoration: none;
+  color: #252525;
+}
+.mu-profile-link:hover
+{
+  text-decoration: underline;
+}
+
+.txt-input-cari{
+  margin-top: 20px;
+  border: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.button-cari{
+  padding: 10px;
+  background-color: #252525;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 2px;
+}

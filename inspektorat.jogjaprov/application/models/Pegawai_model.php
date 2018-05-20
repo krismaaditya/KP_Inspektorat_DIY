@@ -1,27 +1,26 @@
 <?php
 class Pegawai_model extends CI_model
 {
-  public function tambah($foto_pegawai)
+  public function tambah($data_pegawai)
   {
-    $data_pegawai = array(
-  		'nik_pegawai' =>$this->input->post('tambah-nik-pegawai'),
-  		'nama_pegawai' =>$this->input->post('tambah-nama-pegawai'),
-  		'jabatan_pegawai' => $this->input->post('tambah-jabatan-pegawai'),
-      'foto_pegawai' => $foto_pegawai
-  	);
-
+    //insert data pegawai
     $this->db->insert('pegawai',$data_pegawai);
   }
 
-  public function edit($id_pegawai){
-    
+  public function update($id_pegawai, $data_edit_pegawai)
+  {
+    $this->db->where('id_pegawai', $id_pegawai);
+    $this->db->update('pegawai', $data_edit_pegawai);
   }
 
   public function get_pegawai()
 	{
-		$this->db->select('p.* , jp.*');
+		//$this->db->select('p.* , jp.* , fp.*');
+    //$this->db->where('fp.id_pegawai = p.id_pegawai');
+		//$query = $this->db->get('pegawai AS p, jabatan_pegawai AS jp , foto_profil_pegawai AS fp');
+    $this->db->select('p.* , jp.*');
     $this->db->where('p.jabatan_pegawai = jp.id_jabatan');
-		$query = $this->db->get('pegawai AS p, jabatan_pegawai AS jp');
+    $query = $this->db->get('pegawai AS p, jabatan_pegawai AS jp');
 		return $query->result();
 	}
 

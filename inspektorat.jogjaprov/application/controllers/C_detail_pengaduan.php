@@ -47,27 +47,47 @@ class C_detail_pengaduan extends CI_Controller
   // }
 
   public function tindaklanjut(){
-    $tindaklanjut = array (
-    'isi_tindaklanjut' =>$this->input->post('tindakLanjut-textarea'),
-    'id_pengaduantnt' =>$this->session->userdata('id_pengaduan')
-    );
-    $status = array(
-      'id_statuspengaduan' => '1'
-    );
-    $this->m_detail_pengaduan->tindaklanjut($tindaklanjut);
+    $is_an_admin = $this->session->userdata('is_admin');
 
-    $id_p = $this->session->userdata('id_pengaduan');
-    $this->m_detail_pengaduan->gantistatus($status, $id_p);
+    if ($is_an_admin) {
+      $tindaklanjut = array (
+      'isi_tindaklanjut' =>$this->input->post('tindakLanjut-textarea'),
+      'id_pengaduantnt' =>$this->session->userdata('id_pengaduan')
+      );
+      $status = array(
+        'id_statuspengaduan' => '1'
+      );
+      $this->m_detail_pengaduan->tindaklanjut($tindaklanjut);
 
-    if ($tindaklanjut) {
-      //hh
-      redirect('pengaduan');
-      // print_r("BERHASIL");
-      echo 1;
+      $id_p = $this->session->userdata('id_pengaduan');
+      $this->m_detail_pengaduan->gantistatus($status, $id_p);
+
+      if ($tindaklanjut) {
+        //hh
+        redirect('pengaduan');
+        // print_r("BERHASIL");
+        echo 1;
+      }
+      else {
+        print_r("GAGAL");
+        echo 0;
+      }
     }
     else {
-      print_r("GAGAL");
-      echo 0;
+    $this->load->view('unauthorized_access');
+    }
+  }
+
+  public function hapus($id_pengaduan)
+  {
+    $is_an_admin = $this->session->userdata('is_admin');
+
+    if ($is_an_admin) {
+    $this->m_detail_pengaduan->delete($id_pengaduan);
+    redirect('pengaduan','refresh');
+    }
+    else {
+    $this->load->view('unauthorized_access');
     }
   }
 }

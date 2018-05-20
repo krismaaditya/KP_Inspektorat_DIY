@@ -12,20 +12,41 @@ class Buku_tamu extends CI_Controller
 
   public function index()
   {
-    $jumlah_data_tamu = $this->buku_tamu_model->jumlah_data();
-    $this->load->library('pagination');
-    $config['base_url'] = base_url().'buku_tamu/index';
-    $config['total_rows'] = $jumlah_data_tamu;
-    $config['per_page'] = 10;
-    $from = $this->uri->segment(3);
-    $this->pagination->initialize($config);
-    $data['buku_tamu'] = $this->buku_tamu_model->data($config['per_page'], $from);
+    $is_an_admin = $this->session->userdata('is_admin');
 
-    $this->load->view('buku-tamu', $data);
+    if ($is_an_admin) {
+      $jumlah_data_tamu = $this->buku_tamu_model->jumlah_data();
+      $this->load->library('pagination');
+      $config['base_url'] = base_url().'buku_tamu/index';
+      $config['total_rows'] = $jumlah_data_tamu;
+      $config['per_page'] = 20;
+      $config['full_tag_open'] = '<ul class="page">';
+      $config['full_tag_close'] = '</ul>';
+      $config['cur_tag_open'] = '<li class="current">';
+      $config['cur_tag_close'] = '</li>';
+      $config['num_tag_open'] = '<li>';
+      $config['num_tag_close'] = '</li>';
+      $config['next_tag_open'] = '<li>';
+      $config['next_tag_close'] = '</li>';
+      $config['prev_tag_open'] = '<li>';
+      $config['prev_tag_close'] = '</li>';
+      $from = $this->uri->segment(3);
+      $this->pagination->initialize($config);
+      $data['buku_tamu'] = $this->buku_tamu_model->data($config['per_page'], $from);
+
+      $this->load->view('buku-tamu', $data);
+    }
+    else {
+    $this->load->view('unauthorized_access');
+    }
+
   }
 
   public function catat()
   {
+    $is_an_admin = $this->session->userdata('is_admin');
+
+    if ($is_an_admin) {
     $this->load->library('upload');
 
     $config['upload_path'] = './uploads/lampiran_buku_tamu/';
@@ -64,38 +85,33 @@ class Buku_tamu extends CI_Controller
       //print_r($this->upload->display_errors());
 
     }
+  }
+  else {
+    $this->load->view('unauthorized_access');
+  }
 
   }
 
-//   public function contact_info(){
-// $config = array();
-// $config["base_url"] = base_url() . "index.php/buku_tamu/contact_info";
-// $total_row = $this->buku_tamu_model->record_count();
-// $config["total_rows"] = $total_row;
-// $config["per_page"] = 1;
-// $config['use_page_numbers'] = TRUE;
-// $config['num_links'] = $total_row;
-// $config['cur_tag_open'] = '&nbsp;<a class="current">';
-// $config['cur_tag_close'] = '</a>';
-// $config['next_link'] = 'Next';
-// $config['prev_link'] = 'Previous';
-//
-// $this->pagination->initialize($config);
-//   if($this->uri->segment(3))
-//   {
-//     $page = ($this->uri->segment(3)) ;
-//   }
-//     else{
-//     $page = 1;
-//   }
-//
-// $data["results"] = $this->buku_tamu_model->fetch_data($config["per_page"], $page);
-// $str_links = $this->pagination->create_links();
-// $data["links"] = explode('&nbsp;',$str_links );
-//
-// // View data according to array.
-// $this->load->view('buku-tamu', $data);
-// }
+  public function hapus()
+  {
+    $is_an_admin = $this->session->userdata('is_admin');
+
+    if ($is_an_admin) {
+      $id_buku_tamu = $this->uri->segment('3');
+
+      $query = $this->db->query("SELECT * FROM buku_tamu WHERE id_buku_tamu = $id_buku_tamu");
+      foreach ($query->result() as $row) {
+        unlink('./uploads/lampiran_buku_tamu/'.$row->dokumentasi);
+      }
+
+      $this->buku_tamu_model->hapus($id_buku_tamu);
+
+      redirect('buku_tamu','refresh');
+    }
+    else {
+      $this->load->view('unauthorized_access');
+    }
+  }
 }
 
 ?>

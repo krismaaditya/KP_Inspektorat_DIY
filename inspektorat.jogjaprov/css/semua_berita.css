@@ -8,6 +8,27 @@ h1{
 	color: #fff;
 }
 
+.h4berita
+{
+	text-transform: uppercase;
+	color: #252525;
+	margin-top: 30px;
+}
+
+.hrdivider
+{
+	height: 3px;
+	background-color: white;
+	/*border: none;*/
+	border-left: 100px solid #007a26;
+}
+
+.hrtitledatedivider{
+	height: 1px;
+    background: #ccc;
+    border: 0;
+}
+
 .tombol{
 	padding: 8px 15px;
 	border-radius: 3px;
@@ -64,71 +85,73 @@ input
 .list-berita-wrapper{
 	/*border-radius: 5px;
 	border: 1px solid #252525;*/
-	margin-top: 10px;
+	margin-top: 30px;
 	min-height: 800px;
 	margin-bottom: 50px;
 }
 
-.berita-div
-{
-	padding: 1px;
-}
-
 .list-berita-div
 {
-  /*box-shadow: kanan , bawah, tingkat-blur, spread-radius, warna */
-  box-shadow: 1px 1px 2px 1px grey;
-  width: 350px;
-  height: 150px;
-  padding: 10px;
-  margin: 10px;
-  /*float: left;*/
-	display: inline-block;
+	width: 29%;
+	min-width: 130px;
+
+	height: 120px;
+
+  padding: 15px;
+  margin-bottom: 5%;
+  float: left;
+	border: 1px solid #E4E4E4;
+	margin-right: 10px;
+}
+
+@media screen and (max-width: 1100px)
+{
+	.list-berita-div{
+		width: 35%;
+		min-width: 130px;
+		height: 40%;
+		min-height: 120px;
+		max-height: 30%;
+	}
 }
 
 .list-berita-div:hover
 {
-  box-shadow: 1px 1px 8px 1px grey;
-}
-
-.left-news-div
-{
-  float: left;
-  width: 200px;
-  height: 200px;
-  /*border: 1px solid green;*/
+  /*box-shadow: 1px 1px 4px 1px grey;*/
+	border: 1px solid #919191;
 }
 
 .other-news-thumbnails
 {
-
-  width: 150px;
-  height: 150px;
-}
-
-.right-news-div
-{
-  /*border: 1px solid green;*/
-   float: right;
-  width: 150px; /*66% atau 220px*/
-  height: 100px;
-  padding-top: 1px
-  padding-left: 10px;
+	width: 120px;
+	height: 120px;
+	float: left;
+	margin-right: 15px;
 }
 
 .other-news-title
 {
-  font-size: 15px;
+	font-size: 1em;
   color: #252525;
-
+  /*border: 1px solid orange;*/
+  display: inline;
+	font-weight: bold;
 }
 
 .timedate
 {
-  font-size: 10px;
-  color: gray;
   /*border: 1px solid green;*/
+	font-size: 0.8em;
+  color: gray;
+  display: block;
 }
+
+.tag-berita{
+	color: #007a26;
+	font-size: 0.7em;
+}
+
+/*button tulis berita dan modalnya*/
 #newBeritaBtn
 {
   width: 130px;

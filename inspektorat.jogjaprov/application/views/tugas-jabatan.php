@@ -1,11 +1,8 @@
-<?php
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Inspektorat DIY - Tugas dan Fungsi Jabatan
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <title>Inspektorat DIY - Landasan Hukum
     </title>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
   </head>
@@ -17,29 +14,26 @@
     <nav>
       <?php include'nav.php'; ?>
     </nav>
-    <div class="berita">
-      <h1>Tugas dan fungsi Jabatan</h1>
-      <!-- <div class="gambar">
-        <img class="gambar_detail_berita" src="<?php echo base_url(); ?>uploads/berita/images/<?php echo $this->session->userdata('gambar_berita'); ?>"/>
-      </div> -->
-      <br>
-      <p>Berdasarkan Pergub DIY Nomor 52 Tahun 2015 Inspektorat mempunyai tugas:</p>
+    <div class="landasanhukum-div">
+      <h3>Landasan Hukum</h3>
+      <img class="garuda" src="<?php echo base_url('assets/images/garuda-bw-286x300.jpg'); ?>" alt="">
 
-      <p>Melakukan pengawasan terhadap pelaksanaan urusan pemerintahan di Daerah, pelaksanaan pembinaan atas penyelenggaraan Pemerintahan Daerah Kabupaten/Kota dan pelaksanaan urusan Pemerintahan di Daerah Kabupaten/Kota.</p>
+      <h5>Berdasarkan Pergub DIY Nomor 52 Tahun 2015 Inspektorat mempunyai tugas:</h5>
 
-      <p>Untuk melaksanakan tugas sebagaimana dimaksud Inspektorat mempunyai fungsi :</p>
+      <h5>Melakukan pengawasan terhadap pelaksanaan urusan pemerintahan di Daerah, pelaksanaan pembinaan atas penyelenggaraan Pemerintahan Daerah Kabupaten/Kota dan pelaksanaan urusan Pemerintahan di Daerah Kabupaten/Kota.</h5>
 
+      <h5>Untuk melaksanakan tugas sebagaimana dimaksud Inspektorat mempunyai fungsi :</h5>
 
-      <ul>
-        <li>1. Perencanaan program pengawasan;</li>
-        <li>2. Perumusan kebijakan dan fasilitasi pengawasan;</li>
-        <li>3. pemeriksaan, pengusutan, pengujian, dan penilaian tugas pengawasan.</li>
-        <li>4. pengawasan terhadap pelaksanaan urusan pemerintahan daerah;</li>
-        <li>5. pengawasan pelaksanaan urusan keistimewaan;</li>
-        <li>6. pembinaan atas penyelenggaraan pemerintahan daerah Kabupaten/Kota, dan pelaksanaan urusan pemerintahan di daerah Kabupaten/Kota;</li>
-        <li>7. penyusunan laporan pelaksanaan tugas Inspektorat; dan</li>
-        <li>8. penyelenggaraan kegiatan ketatausahaan.</li>
-      </ul>
+      <ol class="lhul">
+        <li class="lhli">Perencanaan program pengawasan;</li>
+        <li class="lhli">Perumusan kebijakan dan fasilitasi pengawasan;</li>
+        <li class="lhli">Pemeriksaan, pengusutan, pengujian, dan penilaian tugas pengawasan.</li>
+        <li class="lhli">Pengawasan terhadap pelaksanaan urusan pemerintahan daerah;</li>
+        <li class="lhli">Pengawasan pelaksanaan urusan keistimewaan;</li>
+        <li class="lhli">Pembinaan atas penyelenggaraan pemerintahan daerah Kabupaten/Kota, dan pelaksanaan urusan pemerintahan di daerah Kabupaten/Kota;</li>
+        <li class="lhli">Penyusunan laporan pelaksanaan tugas Inspektorat; dan</li>
+        <li class="lhli">Penyelenggaraan kegiatan ketatausahaan.</li>
+      </ol>
 
       </div>
 

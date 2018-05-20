@@ -1,11 +1,13 @@
 <?php
+$is_loggedin = $this->session->userdata('logged_in');
+$is_an_admin = $this->session->userdata('is_admin');
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Berita</title>
-    <link rel="stylesheet" href="<?php echo base_url(); ?>css/semua_berita.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+  <title>Berita</title>
+  <link rel="stylesheet" href="<?php echo base_url(); ?>css/semua_berita.css" />
 </head>
 <body>
   <header>
@@ -15,63 +17,61 @@
   <nav>
     <?php include 'nav.php'; ?>
   </nav>
-<div>
-  <button id="newBeritaBtn">+ Tulis Berita Baru</button>
 
-  <div id="artikelModal" class="artikelmodal">
-  <div class="artikelModal-content">
+  <h4 class="h4berita">Berita dan KEGIATAN</h4>
+  <hr class="hrdivider">
 
-  <div class="artikelModal-header">
-    <span class="artikelclose">&times;</span>
-    <h3>Tulis Berita Baru</h3>
-  </div>
+  <?php if ($is_an_admin){ ?>
+    <button id="newBeritaBtn">+ Tulis Berita Baru</button>
 
-    <div class="artikelModal-body">
-      <!-- <form role="form" class="kotak" action="<?php //echo base_url('semua_berita/tulis'); ?>" method="post"> -->
-        <?php echo form_open_multipart('semua_berita/tulis') ?>
-        <input type="text" class="judul" name="judul-berita" placeholder="Judul berita" required>
+    <div id="artikelModal" class="artikelmodal">
+      <div class="artikelModal-content">
 
-        <label for="berita-category">Kategori</label>
-        <select class="category-select" name="berita-category">
-           <option value="artikel">Artikel</option>
-           <option value="kegiatan">Kegiatan</option>
-        </select>
+        <div class="artikelModal-header">
+          <span class="artikelclose">&times;</span>
+          <h3>Tulis Berita Baru</h3>
+        </div>
 
-         <label for="isi-berita">ISI ARTIKEL</label>
-         <textarea name="isi-berita" class="texteditor"></textarea>
+        <div class="artikelModal-body">
+          <?php echo form_open_multipart('semua_berita/tulis') ?>
+          <input type="text" class="judul" name="judul-berita" placeholder="Judul berita" required>
 
-         <label for="gambar">FOTO BERITA</label>
-         <!-- <img id="uploadPreview" style="width: 150px; height: 150px;" /><br> -->
-         <input type="file" id="userfile" name="userfile" required/>
+          <label for="berita-category">Kategori</label>
 
-         <input type="submit" class="simpan-artikel-button" name="simpan" value="SIMPAN">
-      <!-- </form> -->
-      <?php form_close() ?>
-  </div>
-  </div>
-  </div>
+          <select class="category-select" name="berita-category">
+            <?php if (count($kategori_berita)): ?>
+              <?php foreach($kategori_berita as $row):?>
+                <option value="<?php echo $row->id_kategori; ?>"><?php echo $row->nama_kategori; ?></option>
+              <?php endforeach; ?>
+            <?php endif ?>
+          </select>
 
-</div>
+          <label for="isi-berita">ISI ARTIKEL</label>
+          <textarea name="isi-berita" class="texteditor"></textarea>
+
+          <label for="gambar">FOTO BERITA</label>
+          <input type="file" id="userfile" name="userfile" required/>
+
+           <input type="submit" class="simpan-artikel-button" name="simpan" value="SIMPAN">
+           <?php echo form_close(); ?>
+         </div>
+       </div>
+     </div>
+  <?php }else{ } ?>
+
+
 
   <article class="list-berita-wrapper">
     <?php if (count($berita_items)): ?>
       <?php foreach($berita_items as $row):?>
         <a href="<?php echo base_url(); ?>berita/baca/<?php echo $row->id_berita ?>">
-          <!-- <div class="berita-div"> -->
-            <!-- <div class="berita-div"> -->
-              <div class="list-berita-div">
-                <div class="left-news-div">
-                <img class="other-news-thumbnails" src="<?php echo base_url() ?>uploads/berita/images/<?php echo $row->gambar_berita ?>">
-                </div>
-
-                <div class="right-news-div">
-                  <p class="other-news-title"><?php echo $row->judul_berita ?></p>
-                  <p class="timedate"><?php echo $row->waktu_berita ?></p>
-                    <!-- <p class="other-news-caption">Caption berita</p> -->
-                </div>
-              </div>
-            <!-- </div> -->
-          <!-- </div> -->
+          <div class="list-berita-div">
+            <img class="other-news-thumbnails" src="<?php echo base_url() ?>uploads/berita/thumbnails/<?php echo $row->gambar_berita ?>">
+            <p class="other-news-title"><?php echo $row->judul_berita ?></p>
+            <hr class="hrtitledatedivider">
+            <p class="timedate"><?php echo $row->waktu_berita ?></p>
+            <p class="tag-berita">Tag : <?php echo $row->nama_kategori ?></p>
+          </div>
         </a>
       <?php endforeach; ?>
     <?php endif ?>

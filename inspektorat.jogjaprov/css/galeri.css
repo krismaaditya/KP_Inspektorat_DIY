@@ -1,0 +1,350 @@
+.h4berita
+{
+
+}
+
+.hrdivider
+{
+	height: 3px;
+	background-color: white;
+	/*border: none;*/
+	border-left: 100px solid #007a26;
+}
+
+/*article wrapper*/
+.list-galeri-wrapper{
+	min-height: 1200px;
+	/*border: 2px solid red;*/
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+#uploadGaleriBtn
+{
+  width: 130px;
+  height: 50px;
+  border-radius: 5px;
+	border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  border: 1px solid white;
+  background-color: #007a26;
+  color: white;
+}
+
+#uploadGaleriBtn:hover
+{
+  background-color: #252525;
+}
+
+#preview-galeri-before-upload
+{
+	width: 100px;
+	height: 100px;
+	display: block;
+	border: 1px solid #007a26;
+	padding: 3px;
+	border-radius: 2px;
+}
+
+input
+{
+	padding: 2px;
+	width: 95%;
+	height: 30px;
+	font-family: Tahoma;
+	margin: 5px 0px 10px 0px;
+}
+
+label{
+	float: left;
+}
+
+.txtareaDesc
+{
+	min-height: 110px;
+	max-height: 110px;
+	max-width: 90%;
+	min-width: 40%;
+	width: 95%;
+	height: 110px;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.upload-galeri-button
+{
+	background-color: #252525;
+	width: 100px;
+	height: 50px;
+	cursor: pointer;
+	color: white;
+	border: none;
+	border-radius: 2px;
+}
+
+.upload-galeri-button:hover
+{
+	/*border-bottom: 3px solid #007a26;*/
+	background-color: #007a26;
+}
+
+/*===================UPLOAD=MODALS================*/
+.galerimodal, .edit-galeri-modal-window.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.galeriModal-content, .editgaleriModal-content{
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 50px;
+    padding: 0;
+    border: 2px solid white;
+    min-width: 240px;
+    width: 35%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 2px;
+}
+
+.galeriModal-header, .editgaleriModal-header {
+    padding: 1px 10px;
+    background-color: #252525;
+    color: white;
+    border-radius: 2px 2px 0 0;
+}
+
+.galeriModal-body, .editgaleriModal-body{
+  padding: 12px 16px;
+}
+
+.upgaleri, .editgaleriform{
+  max-width: 400px;
+  background-color: #F7F7F7;
+  border:1px solid #E4E4E4;
+  padding: 25px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  color: #888;
+  text-shadow: 1px 1px 1px #FFF;
+}
+
+.galericlose, .editegclose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.galericlose:hover,
+.editegclose:hover,
+.galericlose:focus,
+.editegclose:focus
+{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+/*OPTION BUTTON EDIT DAN HAPUS PHOTO*/
+.galeri-options-container
+{
+	position: absolute;
+}
+
+.galeri-options-button
+{
+  padding: 2px 10px 1px 10px;
+  /*border: 1px solid red;*/
+  font-weight: bold;
+  font-size: 1.5em;
+  cursor: pointer;
+  /*border: 1px solid #E4E4E4;*/
+  text-align: center;
+  border-radius: 3px;
+	color: white;
+}
+.galeri-options-button:hover{
+  color: #007a26;
+  background-color: #F7F7F7;
+}
+
+.galeri-options{
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 1px 1px 3px 1px gray;
+  z-index: 1;
+}
+.galeri-edit-option-link,
+.galeri-delete-option-link{
+  padding: 10px;
+  display: block;
+  text-align: right;
+	text-decoration: none;
+	color: black;
+}
+.galeri-edit-option-link:hover,
+.galeri-delete-option-link:hover{
+	background-color: #252525;
+	color: white;
+}
+.show-galeri-options
+{
+  display: block;
+}
+
+/*===================PREVIEW GALERI MODAL==============*/
+.row{
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+	grid-gap: 10px;
+	/*border: 1px solid green;*/
+}
+
+.column {
+	width: 85%;
+	height: 188px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	margin: auto;
+	cursor: pointer;
+}
+
+.column:hover {
+	box-shadow: 1px 1px 1px 1px grey;
+}
+
+img.hover-shadow {
+	width: 90%;
+	height: 188px;
+	border-radius: 2px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  padding-top: 10px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1000px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+.main-image-preview{
+	width: 90%;
+	height: 550px;
+}
+
+.cursor {
+  cursor: pointer
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  /*text-align: center;*/
+  background-color: white;
+  padding: 10px 16px;
+  /*color: white;*/
+	/*border: 2px solid red;*/
+	font-size: 0.9em;
+}
+
+#caption::first-letter{
+	text-transform: uppercase;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.hover-shadow:hover {
+  /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)*/
+}
+
+/*--------------------------------*/

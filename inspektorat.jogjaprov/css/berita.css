@@ -1,28 +1,95 @@
 body{
-  width: 70%;
+  width: 100%;
   margin: 0px auto;
   font-family: sans-serif;
 }
 .berita{
-  display : block;
+  /*display : block;*/
   float: left;
   margin: 20px auto;
   width: 60%;
   padding: 30px;
-  box-shadow: 1px 2px 15px grey;
+  /*box-shadow: 1px 2px 15px grey;*/
+  /*background-color: #F7F7F7;
+  border: 1px solid #E4E4E4;*/
 }
+
+.berita-options-container, .komentar-options-container
+{
+  float: right;
+}
+
+.berita-options-button, .komentar-options-button
+{
+  padding: 2px 10px 1px 10px;
+  /*border: 1px solid red;*/
+  font-weight: bold;
+  font-size: 1.5em;
+  cursor: pointer;
+  border: 1px solid #E4E4E4;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.berita-options-button:hover , .komentar-options-button:hover{
+  color: #007a26;
+  background-color: #F7F7F7;
+
+}
+
+.berita-options , .komentar-options{
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 1px 1px 3px 1px gray;
+  z-index: 1;
+}
+
+.show-berita-options , .show-komentar-options
+{
+  display: block;
+}
+
+.deletelink, .deletekomentarlink{
+  padding: 10px;
+  display: block;
+  text-align: right;
+}
+
+.deletelink:hover, .deletekomentarlink:hover{
+  background-color: #007a26;
+  color: white;
+}
+
+
+
+.h1-judul-berita
+{
+  display: block;
+  font-size: 1.8em;
+}
+
+.hr-berita-divider
+{
+  height: 1px;
+    background: #ccc;
+    border: 0;
+}
+
 .gambar{
-  margin: 20px 20px;
+  margin-top: 20px;
 }
 
 .gambar_detail_berita
 {
   width: 100%;
-  height: auto;
+  max-height: 420px;
+  min-width: 60%;
 }
 
 .berita h1{
   margin: 4px 5px;
+  text-transform: capitalize;
 }
 .berita a{
   text-decoration: none;
@@ -34,54 +101,67 @@ body{
   border-radius: 8px;
   padding: 2px;
 }
-.samping{
-  float: right;
-  margin: auto;
-  width: 300px;
-}
-#judul_samping{
-  color: white;
-  font-size: 20px;
-  border-bottom: 2px solid #007a26;
-  margin-bottom: 0px;
-}
-#jdl_Samping_1{
-  font-weight: lighter;
-  background-color: #252525;
-  width: 143px;
-  padding-left: 6px;
-  margin-bottom: 1px;
-}
-#jdl_Samping_2{
-  font-weight: lighter;
-  background-color: #252525;
-  width: 167px;
-  padding-left: 6px;
-  margin-bottom: 1px;
-}
-#jdl_Samping_3{
-  font-weight: lighter;
-  background-color: #252525;
-  width: 164px;
-  padding-left: 6px;
-  margin-bottom: 1px;
-}
-#jdl_Samping_4{
-  font-weight: lighter;
-  background-color: #252525;
-  width: 205px;
-  padding-left: 6px;
-  margin-bottom: 1px;
+
+.berita p
+{
+  font-size: 0.9em;
+  text-align: justify;
+  padding: 0px 5px 10px 10px;
 }
 
-.daftar{
-  padding-left: 6px;
-  margin-top: 7px;
+/*=============KOMENTAR SECTION====================*/
+.hr-comment-divider
+{
+  width: 95%;
+  height: 1px;
+    background: #ccc;
+    font-size: 0;
+    border: 0;
+}
+.komen-div-wrapper{
+  /*border: 1px solid orange;*/
+  width: 95%;
+  margin-bottom: 10px;
+
+}
+
+.komentar{
+  /*border: 1px solid green;*/
 }
 
 .komentar_1 ul{
   display: inline-block;
+  /*display: inline;*/
+  padding-left: 5px;
+
+}
+
+.komentar_1 ul li.nama-komentator-li{
+  font-size: 1em;
+  /*border: 1px solid red;*/
+
+}
+
+.komentar_1 ul li.waktu-komentar-li{
+  font-size: 0.8em;
+  /*border: 1px solid red;*/
+}
+
+.comment-profile-picture-small
+{
+  background-color: black;
+  border-radius: 3px;
+  width: 45px;
+  height: 45px;
+}
+
+.comment-wrapper
+{
+  border-radius: 2px;
+  border: 1px solid #E4E4E4;
+  /*margin: 10px 0px 10px 0px;*/
   padding-left: 10px;
+  background-color: #E4E4E4;
 }
 
 .pos_komentar ul{
@@ -98,11 +178,11 @@ body{
 }
 .pos_komentar ul li input{
   width: 100%;
-  border: 1px solid #007a26;
   line-height: 2;
   border-radius: 3px;
   font-size: 15px;
   margin-bottom: 10px;
+  border: none;
 }
 #tombol_kirim{
   width: 169px;
@@ -117,9 +197,7 @@ body{
 #tombol_kirim:hover{
   background-color: #007a26;
 }
-#tombol_kirim:active{
-  background-color: #007a26;
-}
+
 .wajib_diisi{
   color: red;
 }
@@ -127,22 +205,80 @@ ul{
   list-style: none;
 }
 
-#map_Inspektorat{
-  margin-top: 7px;
+/*ASIDE BACA JUGA*/
+.aside-baca-juga
+{
+  float: right;
+  width: 32%;
 }
 
-.comment-profile-picture-small
-{
-  background-color: black;
-  border-radius: 3px;
-  width: 50px;
-  height: auto;
+.judul-baca-juga{
+  background-color: #252525;
+  border-bottom: 3px solid #007a26;
+  color: white;
+  padding: 5px;
 }
 
-.comment-wrapper
+.baca-juga-div
 {
-  border-radius: 5px;
-  border: 1px solid #252525;
-  margin: 10px 0px 10px 0px;
-  padding-left: 10px;
+  width: 375px;
+  height: 94px;
+  padding: 6px;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  /*border: 1px solid red;*/
+  float: left;
+  display: block;
+  text-align: justify;
+}
+
+.baca-juga-div:hover
+{
+  /*box-shadow: kanan , bawah, tingkat-blur, spread-radius, warna */
+  box-shadow: 1px 1px 8px 1px grey;
+}
+
+.baca-juga-thumbnails
+{
+  width: 168px;
+  height: 94px;
+  float: left;
+  margin-right: 10px;
+}
+
+.baca-juga-title
+{
+  font-size: 0.8em;
+  color: #252525;
+  /*border: 1px solid orange;*/
+  display: inline;
+}
+
+.timedate
+{
+  font-size: 0.6em;
+  color: gray;
+  display: block;
+}
+
+.tag
+{
+  font-size: 0.6em;
+  color: #007a26;
+  display: block;
+}
+
+
+@media screen and (max-width: 900px)
+{
+  .berita{
+    display: block;
+    width: 90%;
+  }
+
+  .aside-baca-juga{
+    float: left;
+    display: block;
+    width: 90%;
+  }
 }

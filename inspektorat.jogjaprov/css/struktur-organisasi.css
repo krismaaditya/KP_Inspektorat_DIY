@@ -3,6 +3,11 @@ section
   /*margin: 0 auto;*/
   /*border: 1px solid red;*/
   margin-bottom: 100px;
+  background-color: #F7F7F7;
+  border:1px solid #E4E4E4;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 2px;
 }
 
 #editPegawaiButton, #tambahPegawaiButton
@@ -10,7 +15,7 @@ section
   border: none;
   background-color: #007a26;
   color: white;
-  width: auto;
+  width: 90px;
   height: 40px;
   cursor: pointer;
   border-radius: 3px;
@@ -39,7 +44,7 @@ section
 }
 
 #grid-item{
-  background-color: #007a26;
+  /*background-color: #007a26;*/
   width: 200px;
   text-align: center;
   border-radius: 3px;
@@ -196,6 +201,15 @@ section
   margin-top: 10px;
 }
 
+.edit-foto-pegawai-preview
+{
+  text-align: center;
+  border-radius: 3px;
+  min-width: 90px;
+  width: 90px;
+  height: auto;
+}
+
 .profile-details
 {
   text-align: center;
@@ -250,8 +264,8 @@ section
     margin-top: 50px;
     padding: 0;
     border: 2px solid white;
-    min-width: 240px;
-    width: 80%;
+    min-width: 480px;
+    width: 71%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     animation-name: animatetop;
     animation-duration: 0.4s;
@@ -273,6 +287,7 @@ section
 .editPegawaiModal-body{
   padding: 12px 16px;
   height: auto;
+  display: inline-block;
 }
 
 .tambahp
@@ -288,16 +303,17 @@ section
 
 .editp
 {
-  /*float: left;*/
-  /*display: block;*/
-    max-width: 400px;
-    background-color: green;
-    background-color: #F7F7F7;
-    border:1px solid #E4E4E4;
-    padding: 25px;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    color: #888;
-    text-shadow: 1px 1px 1px #FFF;
+  display: inline-block;
+  width: 400px;
+  max-width: 400px;
+  background-color: green;
+  background-color: #F7F7F7;
+  border:1px solid #E4E4E4;
+  padding: 25px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  color: #888;
+  text-shadow: 1px 1px 1px #FFF;
+  margin-bottom: 10px;
 }
 
 .tambahp label, .editp label

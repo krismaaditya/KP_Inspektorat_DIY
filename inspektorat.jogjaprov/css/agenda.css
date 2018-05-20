@@ -1,11 +1,10 @@
 .wrapper{
-  border: 2px solid #007a26;
   /*display : block;*/
   float: left;
   margin-bottom: 30px;
   padding: 30px;
   /*box-shadow: kanan , bawah, tingkat-blur, spread-radius, warna */
-  box-shadow: 1px 1px 3px 1px grey;
+  /*box-shadow: 1px 1px 3px 1px grey;*/
   min-height: 800px;
 
 }
@@ -13,10 +12,27 @@
 .calendar-div
 {
   float: left;
-  border: 2px solid #252525;
+  /*border: 2px solid #252525;*/
   width: 30%;
   padding: 10px;
   border-radius: 3px;
+  background-color: #F7F7F7;
+  border: 2px solid #E4E4E4;
+}
+
+.h4berita
+{
+	text-transform: uppercase;
+	color: #252525;
+	margin-top: 30px;
+}
+
+.hrdivider
+{
+	height: 3px;
+	background-color: white;
+	/*border: none;*/
+	border-left: 100px solid #007a26;
 }
 
 .agenda-div
@@ -40,12 +56,48 @@
 #agendaBtn:hover{
   background-color: #252525;
 }
+/*Pagination links*/
+#pagination_link
+{
+  float: right;
+  /*border: 1px solid blue;*/
+}
+.dc-pagination-ul
+{
+  list-style-type: none;
+}
+
+.dc-pagination-ul li{
+  display: inline;
+  margin-right: 5px;
+}
+
+.dc-pagination-ul li a{
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  background-color: #252525;
+  text-decoration: none;
+  border: 1px solid #ccc;
+}
+
+.dc-pagination-ul li a:hover{
+  background-color: #007a26;
+}
+
+.dc-pagination-ul li.current{
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  background-color: #007a26;
+  text-decoration: none;
+}
 
 #tabel-agenda
 {
   margin-top: 20px;
   border-collapse: collapse;
-  width: 100%;
+  width: 800px;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
